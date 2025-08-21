@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin');
+    return view('layouts.app');
+});
+Route::get('/candidate', function () {
+    return view('components.candidate');
 });

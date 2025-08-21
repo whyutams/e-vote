@@ -177,6 +177,149 @@
                 </div>
             </div>
 
+            <!-- Candidates Carousel -->
+            <div class="mb-8">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-xl font-bold">Featured Candidates</h2>
+                    <div class="flex space-x-2">
+                        <button class="carousel-prev w-8 h-8 rounded-full bg-indigo-600/30 flex items-center justify-center hover:bg-indigo-600/50 transition">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <button class="carousel-next w-8 h-8 rounded-full bg-indigo-600/30 flex items-center justify-center hover:bg-indigo-600/50 transition">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="candidates-carousel flex space-x-6 overflow-x-auto pb-6 scroll-smooth" style="scrollbar-width: none;">
+                        <!-- Candidate 1 -->
+                        <div class="glass-card p-6 min-w-[300px] hover-scale">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">John Smith</h3>
+                                    <p class="text-sm text-indigo-200">Progressive Party</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm">Votes</span>
+                                    <span class="font-bold">4,892</span>
+                                </div>
+                                <div class="w-full bg-indigo-600/20 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-500 to-indigo-600 h-2 rounded-full" style="width: 39.2%"></div>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-2 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                View Profile
+                            </button>
+                        </div>
+                        
+                        <!-- Candidate 2 -->
+                        <div class="glass-card p-6 min-w-[300px] hover-scale">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Sarah Johnson</h3>
+                                    <p class="text-sm text-indigo-200">Democratic Alliance</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm">Votes</span>
+                                    <span class="font-bold">3,745</span>
+                                </div>
+                                <div class="w-full bg-indigo-600/20 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-blue-500 to-cyan-500 h-2 rounded-full" style="width: 30.1%"></div>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-2 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                View Profile
+                            </button>
+                        </div>
+                        
+                        <!-- Candidate 3 -->
+                        <div class="glass-card p-6 min-w-[300px] hover-scale">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Michael Chen</h3>
+                                    <p class="text-sm text-indigo-200">Green Movement</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm">Votes</span>
+                                    <span class="font-bold">2,156</span>
+                                </div>
+                                <div class="w-full bg-indigo-600/20 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-green-500 to-emerald-500 h-2 rounded-full" style="width: 17.3%"></div>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                View Profile
+                            </button>
+                        </div>
+                        
+                        <!-- Candidate 4 -->
+                        <div class="glass-card p-6 min-w-[300px] hover-scale">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-yellow-500 to-amber-500 flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">Emma Wilson</h3>
+                                    <p class="text-sm text-indigo-200">Liberty Party</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm">Votes</span>
+                                    <span class="font-bold">1,023</span>
+                                </div>
+                                <div class="w-full bg-indigo-600/20 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-yellow-500 to-amber-500 h-2 rounded-full" style="width: 8.2%"></div>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-2 bg-gradient-to-r from-yellow-500 to-amber-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                View Profile
+                            </button>
+                        </div>
+                        
+                        <!-- Candidate 5 -->
+                        <div class="glass-card p-6 min-w-[300px] hover-scale">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center">
+                                    <i class="fas fa-user text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold">David Brown</h3>
+                                    <p class="text-sm text-indigo-200">Social Front</p>
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-sm">Votes</span>
+                                    <span class="font-bold">876</span>
+                                </div>
+                                <div class="w-full bg-indigo-600/20 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-red-500 to-pink-500 h-2 rounded-full" style="width: 7%"></div>
+                                </div>
+                            </div>
+                            <button class="mt-4 w-full py-2 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg text-sm font-medium hover:opacity-90 transition">
+                                View Profile
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Charts Section -->
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
                 <div class="glass-card p-6 lg:col-span-2 hover-scale">
@@ -427,6 +570,19 @@
                     }
                 }
             }
+        });
+
+        // Candidates Carousel
+        const carousel = document.querySelector('.candidates-carousel');
+        const prevBtn = document.querySelector('.carousel-prev');
+        const nextBtn = document.querySelector('.carousel-next');
+
+        nextBtn.addEventListener('click', () => {
+            carousel.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            carroll.scrollBy({ left: -300, behavior: 'smooth' });
         });
     </script>
 </body>
