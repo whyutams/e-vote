@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Vote</title>
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>Modern e-Voting Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @vite('resources/css/app.css')
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+        }
+        .sidebar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+        }
+        .hover-scale {
+            transition: all 0.3s ease;
+        }
+        .hover-scale:hover {
+            transform: scale(1.03);
+        }
+    </style>
 </head>
 <body class="gradient-bg min-h-screen text-gray-100">
     <div class="flex h-full">
