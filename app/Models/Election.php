@@ -19,7 +19,8 @@ class Election extends Model
         'end_date',
         'status',
         'code',
-        'created_by',
+        'added_by',
+        'updated_by'
     ];
 
 }
