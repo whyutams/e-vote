@@ -18,7 +18,7 @@
     <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 top-[210px] wave-gradient animate-wave-3"></div>
 
     <div class="absolute inset-0 flex flex-col justify-center px-8">
-      <h1 class="text-center text-3xl font-extrabold text-white drop-shadow-lg mb-8">E-vote</h1>
+      <h1 class="text-center text-3xl font-extrabold text-white drop-shadow-lg mb-8">Vitely</h1>
 
       <form class="mt-6 space-y-4">
         <input 
