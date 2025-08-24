@@ -20,7 +20,7 @@ return new class extends Migration {
             $table->string('photo_profile')->nullable();
             $table->string('username', 50)->unique();
             $table->string('password');
-            $table->enum('role', [User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPERADMIN])->default('user');
+            $table->enum('role', [User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPERADMIN])->default(User::ROLE_USER);
             $table->rememberToken();
             $table->timestamps();
         });
