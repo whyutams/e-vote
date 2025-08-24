@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+     <div class="flex-1 md:ml-64 p-6">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
                 <div class="glass-card p-6 hover-scale">
                     <div class="flex items-center justify-between">
@@ -179,3 +183,4 @@
             </div>
         </div>
     </div>
+@endsection
