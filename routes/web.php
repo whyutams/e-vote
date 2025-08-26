@@ -50,5 +50,6 @@ Route::middleware('auth')->group(function () {
                 Route::delete('users/{user}', 'd_destroy')->name('users.destroy')->middleware('superadmin');
             });
 
+            Route::resource('elections', ElectionController::class)->names('elections');
         });
 });

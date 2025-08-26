@@ -12,12 +12,11 @@ return new class extends Migration {
     {
         Schema::create('elections', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 150);
+            $table->string('title', 150)->unique();
             $table->text('description')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->enum('status', ['draft', 'active', 'closed'])->default('draft');
-            $table->string('code', 20)->unique();
             $table->foreignId('added_by')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
