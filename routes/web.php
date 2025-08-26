@@ -21,11 +21,16 @@ Route::get('/candidate', function () {
     return view('components.candidate');
 });
 
-Route::get('/register', [UserController::class, 'register'])->name('register');
-Route::post('/register', [UserController::class, 'proses_register'])->name('register.submit');
-Route::get('/login', [UserController::class, 'login'])->name('login');
-Route::post('/login', [UserController::class, 'proses_login'])->name('login.submit');
-Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-Route::get('/profile', [UserController::class, 'profile'])->name('profile');
-Route::get('/profile/update', [UserController::class, 'update_profile'])->name('profile.update');
-Route::post('/profile/update', [UserController::class, 'proses_update_profile'])->name('profile.update.submit');
+Route::middleware('guest')->group(function () {
+    Route::get('/register', [UserController::class, 'register'])->name('register');
+    Route::post('/register', [UserController::class, 'proses_register'])->name('register.submit');
+    Route::get('/login', [UserController::class, 'login'])->name('login');
+    Route::post('/login', [UserController::class, 'proses_login'])->name('login.submit');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile');
+    Route::get('/profile/update', [UserController::class, 'update_profile'])->name('profile.update');
+    Route::post('/profile/update', [UserController::class, 'proses_update_profile'])->name('profile.update.submit');
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+});
