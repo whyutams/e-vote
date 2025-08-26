@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +35,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile/update', [UserController::class, 'update_profile'])->name('profile.update');
     Route::post('/profile/update', [UserController::class, 'proses_update_profile'])->name('profile.update.submit');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+
+    Route::prefix('dashboard')
+        ->name('dashboard.')->middleware(['superadmin', 'admin'])
+        ->group(function () {
+            Route::get('', [DashboardController::class, "index"])->name("dashboard");
+
+            Route::controller(UserController::class)->group(function () {
+                Route::get('users', 'd')->name('users.index');
+                Route::get('users/create', 'd_create')->name('users.create');
+                Route::post('users', 'proses_register')->name('users.store');
+                Route::get('users/{user}/edit', 'd_edit')->name('users.edit');
+                Route::put('users/{user}', 'proses_update_profile')->name('users.update');
+                Route::delete('users/{user}', 'd_destroy')->name('users.destroy')->middleware('superadmin');
+            });
+
+        });
 });

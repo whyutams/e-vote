@@ -28,7 +28,7 @@ class UserController extends Controller
             $request->session()->regenerate();
             return redirect()->intended(Auth::user()->role == User::ROLE_USER ? '/' : '/dashboard')->with('success', 'Login berhasil, Selamat datang ' . Auth::user()->callname . '.');
         }
-        
+
         return back()->withErrors([
             'username' => 'Username atau password salah.',
         ])->withInput();
@@ -49,6 +49,10 @@ class UserController extends Controller
             'photo_profile' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'username' => 'required|string|min:6|max:50|unique:users',
             'password' => 'required|min:6|confirmed',
+            'role' => [
+                'nullable',
+                Rule::in([User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPERADMIN]),
+            ],
         ]);
 
         User::create([
@@ -59,6 +63,8 @@ class UserController extends Controller
             'photo_profile' => $request->photo_profile,
             'username' => $request->username,
             'password' => Hash::make($request->password),
+            'role' => (Auth::check() && Auth::user()->role == User::ROLE_SUPERADMIN) ? $request->role : User::ROLE_USER,
+
         ]);
 
         if (Auth::attempt($credentials)) {
@@ -107,13 +113,18 @@ class UserController extends Controller
             ],
             'photo_profile' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
             'password' => 'nullable|min:6|confirmed',
+            'role' => [
+                'nullable',
+                Rule::in([User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPERADMIN]),
+            ],
         ]);
 
         $data = [
             'fullname' => $request->fullname ?? Auth::user()->fullname,
             'callname' => $request->callname ?? Auth::user()->callname,
             'email' => $request->email ?? Auth::user()->email,
-            'phone' => $request->phone ?? Auth::user()->phone, 
+            'phone' => $request->phone ?? Auth::user()->phone,
+            'role' => (Auth::check() && Auth::user()->role == User::ROLE_SUPERADMIN) ? $request->role : User::ROLE_USER,
         ];
 
         if ($request->hasFile('photo_profile')) {
@@ -133,4 +144,27 @@ class UserController extends Controller
         return redirect()->route('profile')->with('success', 'Profil berhasil diperbarui.');
     }
     /* Profile END */
+
+    /* Dashboard */
+    public function d()
+    {
+        return "view user";
+    }
+
+    public function d_create()
+    {
+        return "view create user";
+    }
+
+    public function d_edit()
+    {
+        return "view edit user";
+    }
+
+    public function d_destroy(User $user)
+    { 
+        $user->delete();
+        return redirect()->route('dashboard.users.index')->with('success', 'User berhasil dihapus.');
+    }
+    /* Dashboard END */
 }
