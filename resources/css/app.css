@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'flowbite';
+
 @layer utilities {
   .wave-gradient {
     background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);

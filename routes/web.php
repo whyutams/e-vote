@@ -17,10 +17,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::get('/dashboard', function () {
-    return view('layouts.app');
+    return view('dashboard.dashboard');
 });
-Route::get('/candidate', function () {
-    return view('components.candidate');
-});
+
 
 
