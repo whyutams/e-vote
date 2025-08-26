@@ -16,9 +16,49 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-Route::get('/dashboard', function () {
-    return view('dashboard.dashboard');
+
+Route::prefix('dashboard')->group(function () {
+
+    Route::get('/', function () {
+        return view('dashboard.dashboard');
+    })->name('dashboard.index');
+
+    Route::prefix('candidate')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.candidate.index');
+        })->name('dashboard.candidate.index');
+
+        Route::get('/create', function () {
+            return view('dashboard.candidate.create');
+        })->name('dashboard.candidate.create');
+
+        Route::get('/edit', function (){
+            return view('dashboard.candidate.edit');
+        })->name('dashboard.candidate.edit');
+
+        // Route::get('/{id}', function ($id) {
+        //     return view('dashboard.candidate.show', ['id' => $id]);
+        // })->name('dashboard.candidate.show');
+
+    });
+
+    Route::prefix('election')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.election.index');
+        })->name('dashboard.election.index');
+
+        Route::get('/create', function () {
+            return view('dashboard.election.create');
+        })->name('dashboard.election.create');
+
+        Route::get('/edit', function (){
+            return view('dashboard.election.edit');
+        })->name('dashboard.election.edit');
+
+        // Route::get('/{id}', function ($id) {
+        //     return view('dashboard.election.show', ['id' => $id]);
+        // })->name('dashboard.election.show');
+
+    });
 });
-
-
 

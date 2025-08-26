@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import 'flowbite';
+@import 'flowbite-typography';
 
 @layer utilities {
   .wave-gradient {
