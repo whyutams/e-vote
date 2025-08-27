@@ -4,6 +4,7 @@ use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -53,5 +54,7 @@ Route::middleware('auth')->group(function () {
 
             Route::resource('elections', ElectionController::class)->names('elections');
             Route::resource('elections.candidates', CandidateController::class)->names('candidates');
+            Route::resource('elections.candidates.votes', VoteController::class)->names('votes')->only(['store', 'destroy']);
+
         });
 });
