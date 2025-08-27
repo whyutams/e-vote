@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoteController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,10 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::post('/profile/update', [UserController::class, 'proses_update_profile'])->name('profile.update.submit');
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
+    // SUPERADMIN & ADMIN
     Route::prefix('dashboard')
-        ->name('dashboard.')->middleware(['superadmin', 'admin'])
+        ->name('dashboard.')->middleware(['role:' . User::ROLE_SUPERADMIN . ',' . User::ROLE_ADMIN])
         ->group(function () {
-            Route::get('', [DashboardController::class, "index"])->name("dashboard");
+            Route::get('', [DashboardController::class, "index"])->name("index");
 
             Route::controller(UserController::class)->group(function () {
                 Route::get('users', 'd')->name('users.index');
@@ -49,12 +51,23 @@ Route::middleware('auth')->group(function () {
                 Route::post('users', 'proses_register')->name('users.store');
                 Route::get('users/{user}/edit', 'd_edit')->name('users.edit');
                 Route::put('users/{user}', 'proses_update_profile')->name('users.update');
-                Route::delete('users/{user}', 'd_destroy')->name('users.destroy')->middleware('superadmin');
+                Route::delete('users/{user}', 'd_destroy')->name('users.destroy')->middleware('role:' . User::ROLE_SUPERADMIN);
             });
 
             Route::resource('elections', ElectionController::class)->names('elections');
             Route::resource('elections.candidates', CandidateController::class)->names('candidates');
-            Route::resource('elections.candidates.votes', VoteController::class)->names('votes')->only(['store', 'destroy']);
-
         });
+
+
+    // USER
+    Route::middleware('role:' . User::ROLE_USER)->group(function () {
+        Route::get('elections', [ElectionController::class, 'index'])->name('elections.index');
+        Route::get('elections/{election}', [ElectionController::class, 'show'])->name('elections.show');
+
+        Route::get('elections/{election}/candidates/{candidate}', [CandidateController::class, 'show'])->name('candidate.show');
+
+        // vote (create & delete)
+        Route::post('elections/{election}/candidates/{candidate}/vote', [VoteController::class, 'store'])->name('votes.store');
+        Route::delete('elections/{election}/candidates/{candidate}/vote', [VoteController::class, 'destroy'])->name('votes.destroy');
+    });
 });
