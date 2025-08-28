@@ -16,7 +16,7 @@
                 <i class="ri-user-line text-xl"></i>
                 <span class="ms-3">Kandidat</span>
             </a>
-         </li>
+         </li> 
          <li>
             <a href="{{route('dashboard.users.index') }}"
             class="flex items-center p-2 rounded-lg group hover-scale

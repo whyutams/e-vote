@@ -60,6 +60,12 @@ Route::prefix('dashboard')->group(function () {
         // })->name('dashboard.users.show');
     });
 
+        Route::prefix('voter')->group(function () {
+        Route::get('/', function () {
+            return view('voter.index');
+        })->name('dashboard.voter.index');
+    });
+
     Route::get('/setting', function () {
         return view('dashboard.setting.index');
     })->name('dashboard.setting.index');
