@@ -23,6 +23,25 @@ Route::prefix('dashboard')->group(function () {
         return view('dashboard.dashboard');
     })->name('dashboard.index');
 
+    Route::prefix('election')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.election.index');
+        })->name('dashboard.election.index');
+
+        Route::get('/create', function () {
+            return view('dashboard.election.create');
+        })->name('dashboard.election.create');
+
+        Route::get('/edit', function (){
+            return view('dashboard.election.edit');
+        })->name('dashboard.election.edit');
+
+        // Route::get('/{id}', function ($id) {
+        //     return view('dashboard.election.show', ['id' => $id]);
+        // })->name('dashboard.election.show');
+
+    });
+
     Route::prefix('candidate')->group(function () {
         Route::get('/', function () {
             return view('dashboard.candidate.index');
