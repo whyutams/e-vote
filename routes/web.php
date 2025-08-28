@@ -42,23 +42,26 @@ Route::prefix('dashboard')->group(function () {
 
     });
 
-    Route::prefix('election')->group(function () {
+    Route::prefix('users')->group(function () {
         Route::get('/', function () {
-            return view('dashboard.election.index');
-        })->name('dashboard.election.index');
+            return view('dashboard.users.index');
+        })->name('dashboard.users.index');
 
         Route::get('/create', function () {
-            return view('dashboard.election.create');
-        })->name('dashboard.election.create');
+            return view('dashboard.users.create');
+        })->name('dashboard.users.create');
 
         Route::get('/edit', function (){
-            return view('dashboard.election.edit');
-        })->name('dashboard.election.edit');
+            return view('dashboard.users.edit');
+        })->name('dashboard.users.edit');
 
         // Route::get('/{id}', function ($id) {
-        //     return view('dashboard.election.show', ['id' => $id]);
-        // })->name('dashboard.election.show');
-
+        //     return view('dashboard.users.show', ['id' => $id]);
+        // })->name('dashboard.users.show');
     });
+
+    Route::get('/setting', function () {
+        return view('dashboard.setting.index');
+    })->name('dashboard.setting.index');
 });
 

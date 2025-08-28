@@ -18,17 +18,17 @@
             </a>
          </li>
          <li>
-            <a href="{{route('dashboard.election.index') }}"
+            <a href="{{route('dashboard.users.index') }}"
             class="flex items-center p-2 rounded-lg group hover-scale
-            {{ Request::is('dashboard/election') ? 'bg-gray-900 text-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}">
+            {{ Request::is('dashboard/users') ? 'bg-gray-900 text-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}">
                 <i class="ri-group-line text-xl"></i>
-                <span class="ms-3">Pemilih</span>
+                <span class="ms-3">Pengguna</span>
             </a>
          </li>
          <li>
-            <a href="{{route('dashboard.election.index') }}"
+            <a href="{{route('dashboard.setting.index') }}"
             class="flex items-center p-2 rounded-lg group hover-scale
-            {{ Request::is('dashboard/election') ? 'bg-gray-900 text-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}">
+            {{ Request::is('dashboard/setting') ? 'bg-gray-900 text-gray-100 dark:bg-gray-700 dark:text-white' : 'text-gray-600 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700' }}">
                 <i class="ri-settings-5-line text-xl"></i>
                 <span class="ms-3">Pengaturan</span>
             </a>

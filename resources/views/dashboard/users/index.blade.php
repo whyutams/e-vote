@@ -14,16 +14,6 @@
                     Tambah Data
                 </a>
             </div>
-            <div class="mb-3">
-                <label for="excelFile" class="inline-flex items-center px-3 py-2 bg-green-600 text-white text-sm font-medium rounded-lg shadow hover:bg-green-700 transition">
-                    <i class="ri-file-excel-2-line text-lg me-2"></i>
-                    Import Excel
-                </label>
-                <form action="" method="POST" enctype="multipart/form-data" class="hidden" id="importForm">
-                    @csrf
-                    <input type="file" name="file" id="excelFile" accept=".xlsx,.xls" class="hidden" onchange="document.getElementById('importForm').submit()">
-                </form>
-            </div>
          </div>
         <div class="pb-4 dark:bg-gray-900">
             <label for="table-search" class="sr-only">Search</label>
