@@ -27,7 +27,8 @@
 
     <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale">
         <div class="p-3 bg-purple-100 rounded-full">
-            <i class="ri-inbox-archive-fill text-2xl text-purple-600"></i>
+            {{-- <i class="ri-inbox-archive-fill text-2xl text-purple-600"></i> --}}
+            <svg xmlns="http://www.w3.org/2000/svg" height="34px" viewBox="0 -960 960 960" width="28px" fill="#8C1AF6"><path d="M186.67-80q-27 0-46.84-19.83Q120-119.67 120-146.67v-192.66l126.67-141 47.66 47.66-105.33 116h582L671-430l47.67-47.67L840-339.33v192.66q0 27-19.83 46.84Q800.33-80 773.33-80H186.67Zm0-66.67h586.66V-250H186.67v103.33ZM436.33-385l-153-153Q263-558.33 264.5-585.17q1.5-26.83 21.17-46.5l206.66-206.66q18.96-18.71 46.98-19.52 28.02-.82 47.69 18.85l153 153q19 19 19.67 45.67.66 26.66-20.34 47.66l-208 208q-19 19-46.83 19.5T436.33-385Zm251-256-147-147-204.66 204.67 147 147L687.33-641ZM186.67-146.67V-250v103.33Z"/></svg>
         </div>
         <div>
             <p class="text-sm text-gray-500">Suara Masuk</p>
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
     new Chart(ctx1, {
         type: 'bar',
         data: {
-            labels: ['Candidate A', 'Candidate B', 'Candidate C'],
+            labels: ['Nomor Urut 1', 'Nomor Urut 2', 'Nomor Urut 3'],
             datasets: [{
                 label: 'Votes',
                 data: [300, 150, 100],
