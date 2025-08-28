@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="mt-3 mb-6">
+<div class="mt-3 mb-3">
     <h2 class="text-2xl font-bold text-gray-800">@yield('title')</h2>
     <p class="text-sm text-gray-500">Daftar semua data @yield('title')</p>
 </div>
