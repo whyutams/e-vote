@@ -12,7 +12,7 @@
 <body class="bg-gray-50">
 
     @include('templates.navbar')
-    <div class="p-4 sm:ml-64">
+    <div class="p-4">
         <main>
             <div class="mt-14">
                 @yield('body')
