@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pengguna')
+@section('title', 'Pemilihan')
 
 @section('content')
 
@@ -8,6 +8,7 @@
     <h2 class="text-2xl font-bold text-gray-800">@yield('title')</h2>
     <p class="text-sm text-gray-500">Daftar semua data @yield('title')</p>
 </div>
+
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg rounded-lg  dark:bg-gray-800 dark:border-gray-700">
     <div class="p-5 flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between">
@@ -41,13 +42,19 @@
                         </div>
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Nama
+                        Judul Pemilihan
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        code
+                        Deskripsi
                     </th>
                     <th scope="col" class="px-6 py-3">
                         status
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Mulai Pemilihan
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Selesai Pemilihan
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -66,10 +73,16 @@
                         Denis Supratman
                     </th>
                     <td class="px-6 py-4">
-                        531230082
+                        Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Draft</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        2025-05-12 08:00:00
+                    </td>
+                    <td class="px-6 py-4">
+                        2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
                         <a href="{{ url('/dashboard/election/edit') }}" class="font-medium text-yellow-500 dark:text-yellow-500 hover:underline">Edit</a>
@@ -87,10 +100,16 @@
                         Sumanto Adibi
                     </th>
                     <td class="px-6 py-4">
-                        531230031
+                        Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-green-900 dark:text-green-300">active</span>
+                    </td>
+                     <td class="px-6 py-4">
+                        2025-05-12 08:00:00
+                    </td>
+                    <td class="px-6 py-4">
+                        2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
                         <a href="{{ url('/dashboard/election/edit') }}" class="font-medium text-yellow-500 dark:text-yellow-500 hover:underline">Edit</a>
@@ -108,10 +127,16 @@
                         Marince Since Raga-raga
                     </th>
                     <td class="px-6 py-4">
-                        531230091
+                        Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-red-900 dark:text-red-300">Closed</span>
+                    </td>
+                    <td class="px-6 py-4">
+                        2025-05-12 08:00:00
+                    </td>
+                    <td class="px-6 py-4">
+                        2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
                         <a href="{{ url('/dashboard/election/edit') }}" class="font-medium text-yellow-500 dark:text-yellow-500 hover:underline">Edit</a>
