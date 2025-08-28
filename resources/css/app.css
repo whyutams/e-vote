@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'flowbite';
+@import 'flowbite-typography';
+
+@layer utilities {
+  .wave-gradient {
+    background: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+  }
+
+  .animate-wave {
+    border-radius: 40%;
+    animation: wave 55s infinite linear;
+  }
+
+  .animate-wave-2 {
+    border-radius: 40%;
+    animation: wave 50s infinite linear;
+  }
+
+  .animate-wave-3 {
+    border-radius: 40%;
+    animation: wave 45s infinite linear;
+  }
+
+  @keyframes wave {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+.sidebar {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+.gradient-bg {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 50%, #a855f7 100%);
+}
+.hover-scale {
+    transition: all 0.3s ease;
+}
+.hover-scale:hover {
+    transform: scale(1.03);
+}
