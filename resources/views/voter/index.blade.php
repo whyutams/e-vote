@@ -36,8 +36,6 @@
     </div>
 
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
-
-    
     <!-- Card -->
     <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden dark:bg-gray-800">
         <div class="p-6">
@@ -53,7 +51,6 @@
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
-                    @include('dashboard.candidate.show')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
@@ -80,7 +77,6 @@
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
-                    @include('dashboard.candidate.show')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
@@ -107,7 +103,6 @@
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
-                    @include('dashboard.candidate.show')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
@@ -133,7 +128,6 @@
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
-                    @include('dashboard.candidate.show')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
@@ -145,7 +139,7 @@
             </div>
         </div>
     </div>
-</<div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+</<div>
 
 
 @endsection

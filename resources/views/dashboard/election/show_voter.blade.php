@@ -1,19 +1,35 @@
 @extends('layouts.app')
 
-@section('title', 'Pengguna')
+@section('title', 'Detail Pemilihan')
 
 @section('content')
 
-<div class="mt-3 mb-3">
-    <h2 class="text-2xl font-bold text-gray-800">@yield('title')</h2>
-    <p class="text-sm text-gray-500">Daftar semua data @yield('title')</p>
+@include('dashboard.election.customize.banner')
+
+<div class="mb-6">
+    <ul class="flex text-sm font-medium text-center text-gray-500 rounded-lg shadow-sm dark:divide-gray-700 dark:text-gray-800">
+        <li class="w-full focus-within:z-10">
+            <a href="{{ route('dashboard.election.show', $id) }}"
+               class="inline-block w-full p-4 bg-white border-r border-gray-200 hover:text-gray-700 hover:bg-gray-50 rounded-s-lg dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700">
+                Kandidat
+            </a>
+        </li>
+        <li class="w-full focus-within:z-10">
+            <a href="{{ route('dashboard.election.show_voter', $id) }}"
+               class="inline-block w-full p-4 font-semibold text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-e-lg shadow-md dark:from-blue-600 dark:to-indigo-700"
+               aria-current="page">
+                Pemilih
+            </a>
+        </li>
+    </ul>
 </div>
+
 
 <div class="relative overflow-x-auto shadow-md sm:rounded-lg rounded-lg  dark:bg-gray-800 dark:border-gray-700">
     <div class="p-5 flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between">
          <div class="flex flex-column">
              <div class="mb-3 me-2">
-                <a href="{{ route('dashboard.users.create') }}"
+                <a href="{{ route('dashboard.election.create_voter', $id) }}"
                     class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg shadow hover:bg-blue-700 transition">
                     <i class="ri-add-line mr-1 text-lg"></i>
                     Tambah Data
@@ -44,7 +60,10 @@
                         Nama
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                        Nomor Identitas
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Nomor HP
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Aksi
@@ -63,10 +82,13 @@
                         Denis Supratman
                     </th>
                     <td class="px-6 py-4">
-                        denis@gmail.com
+                        531230082
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ route('dashboard.users.edit') }}" class="font-medium text-yellow-500 dark:text-yellow-500 hover:underline">
+                        0893949939
+                    </td>
+                    <td class="px-6 py-4">
+                        <a href="{{ route('dashboard.election.edit_voter', $id) }}" class="font-medium text-yellow-500 dark:text-yellow-500 hover:underline">
                             <i class="ri-pencil-fill text-lg"></i>
                             Ubah
                         </a>

@@ -33,7 +33,7 @@
             </div>
         </div>
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
-            <thead class="text-xs text-gray-50 uppercase bg-gray-900 dark:bg-gray-700 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase bg-gray-300 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
                     <th scope="col" class="p-4">
                         <div class="flex items-center">
@@ -85,7 +85,7 @@
                         2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ url('/dashboard/election/edit') }}" class="font-medium text-blue-500 dark:text-yellow-500 hover:underline">
+                        <a href="{{ url('/dashboard/election/show') }}" class="font-medium text-blue-500 dark:text-yellow-500 hover:underline">
                         <i class="ri-eye-fill"></i>
                             Detail
                         </a>
@@ -114,7 +114,7 @@
                         2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ url('/dashboard/election/edit') }}" class="font-medium text-blue-500 dark:text-yellow-500 hover:underline">
+                        <a href="{{ url('/dashboard/election/show') }}" class="font-medium text-blue-500 dark:text-yellow-500 hover:underline">
                         <i class="ri-eye-fill"></i>
                             Detail
                         </a>
@@ -143,7 +143,7 @@
                         2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ url('/dashboard/election/edit') }}" class="font-medium text-blue-500 dark:text-yellow-500 hover:underline">
+                        <a href="{{ url('/dashboard/election/show') }}" class="font-medium text-blue-500 dark:text-yellow-500 hover:underline">
                         <i class="ri-eye-fill"></i>
                             Detail
                         </a>

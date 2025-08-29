@@ -1,9 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'Pemilih')
+@section('title', 'Pengguna')
 
 @section('content')
-<div class="mt-20 ms-4 me-4 md:ms-10 md:me-10 max-w-6xl mx-auto">
+
+<div class="mt-3 mb-3">
+    <h2 class="text-2xl font-bold text-gray-800">Tambah Data @yield('title')</h2>
+    <p class="text-sm text-gray-500">isi form di bawah untuk menambah data @yield('title')</p>
+</div>
+
+<div class="mt-6 ms-1 me-1 max-w-5xl mx-auto mb-5">
     <div class="flex flex-col md:flex-row gap-6">
         
         <!-- Kolom Form -->
@@ -18,8 +24,16 @@
                 </div>
 
                 <div class="mb-5">
-                    <label for="code" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Code</label>
-                    <input type="text" id="code" 
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                    <input type="text" id="email" 
+                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg 
+                               bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 
+                               dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
+                
+                <div class="mb-5">
+                    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password</label>
+                    <input type="password" id="password" 
                         class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg 
                                bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 
                                dark:bg-gray-700 dark:border-gray-600 dark:text-white">
@@ -27,10 +41,10 @@
 
                 <div class="mt-6 flex justify-start flex-wrap gap-2">
                     <button type="button" 
-                            class="px-5 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-300">
+                            class="me-2 px-5 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-300">
                         Tambah
                     </button>
-                    <a href="{{ route('dashboard.election.index') }}" 
+                    <a href="{{ route('dashboard.users.index') }}" 
                             class="px-5 py-2 bg-gray-600 text-white text-sm rounded-lg shadow hover:bg-gray-700 focus:ring-2 focus:ring-gray-300">
                         Batal
                     </a>
