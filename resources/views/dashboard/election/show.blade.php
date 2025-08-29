@@ -26,7 +26,7 @@
 </div>
 
 <div class="mb-3 me-2">
-    <a href="{{ route('dashboard.election.create_voter', $id) }}"
+    <a href="{{ route('dashboard.election.create_candidate', $id) }}"
         class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg shadow hover:bg-blue-700 transition">
         <i class="ri-add-line mr-1 text-lg"></i>
         Tambah Data
