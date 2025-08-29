@@ -5,7 +5,7 @@
 @section('body')
 
 <div class="px-4 sm:px-6">
-    <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">Pemilihan Ketua & Wakil Ketua OSIS</h2>
+    <h2 class="lg:text-3xl text-md font-bold text-gray-800 dark:text-white mb-6">Pemilihan Ketua & Wakil Ketua OSIS</h2>
 
     <!-- Time Card -->
     <div class="mb-8">
@@ -17,17 +17,17 @@
                         <p class="text-blue-100 text-sm sm:text-base">Pastikan anda memilih sebelum waktu berakhir</p>
                     </div>
                     <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
-                        <div class="bg-white/90 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px]">
-                            <span class="block text-xl sm:text-2xl font-bold text-blue-600">24</span>
-                            <span class="text-xs sm:text-sm text-gray-600">Jam</span>
+                        <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px]  backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                            <span class="block text-xl sm:text-2xl font-bold text-white">24</span>
+                            <span class="text-xs sm:text-sm text-gray-100">Jam</span>
                         </div>
-                        <div class="bg-white/90 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px]">
-                            <span class="block text-xl sm:text-2xl font-bold text-blue-600">45</span>
-                            <span class="text-xs sm:text-sm text-gray-600">Menit</span>
+                        <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px]  backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                            <span class="block text-xl sm:text-2xl font-bold text-white">45</span>
+                            <span class="text-xs sm:text-sm text-gray-100">Menit</span>
                         </div>
-                        <div class="bg-white/90 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px]">
-                            <span class="block text-xl sm:text-2xl font-bold text-blue-600">30</span>
-                            <span class="text-xs sm:text-sm text-gray-600">Detik</span>
+                        <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px]  backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                            <span class="block text-xl sm:text-2xl font-bold text-white">30</span>
+                            <span class="text-xs sm:text-sm text-gray-100">Detik</span>
                         </div>
                     </div>
                 </div>
