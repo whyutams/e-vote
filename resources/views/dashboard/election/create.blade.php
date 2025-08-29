@@ -17,92 +17,141 @@
         <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6 md:p-8">
             <form>
                 
-                <div class="mb-6 flex flex-col items-center justify-center w-full"> 
-                    <ol class="flex flex-row items-center w-full">
-                        <li class="relative flex-1 mb-6 sm:mb-0">
-                            <div class="flex items-center">
-                                <div class="z-10 flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                    <span class="material-symbols-outlined text-blue-800 dark:text-blue-300">
-                                        how_to_vote
-                                    </span>
-                                </div>
-                                <div class="flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                            </div>
-                            <div class="mt-3 sm:pe-8">
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Data Pemilihan</time>
-                            </div>
-                        </li>
-                        <li class="relative flex-1 mb-6 sm:mb-0">
-                            <div class="flex items-center">
-                                <div class="z-10 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-0 ring-white dark:bg-gray-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                    <i class="ri-group-line"></i>
-                                </div>
-                                <div class="flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
-                            </div>
-                            <div class="mt-3 sm:pe-8">
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Data Kandidat</time>
-                            </div>
-                        </li>
-                        <li class="relative flex-1 mb-6 sm:mb-0">
-                            <div class="flex items-center">
-                                <div class="z-10 flex items-center justify-center w-10 h-10 bg-gray-100 rounded-full ring-0 ring-white dark:bg-gray-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                    <i class="ri-user-line"></i>
-                                </div>
-                            </div>
-                            <div class="mt-3 sm:pe-8">
-                                <time class="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">Data Pemilih</time>
-                            </div>
-                        </li>
-                    </ol>
-                </div>
+                <!-- Stepper -->
+                <div data-hs-stepper="">
+                <!-- Stepper Nav -->
+                <ul class="relative flex flex-row gap-x-2">
+                    <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
+                    "index": 1
+                    }'>
+                    <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
+                        <span class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                        <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">1</span>
+                        <svg class="hidden shrink-0 size-3 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        </span>
+                        <span class="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                        Step
+                        </span>
+                    </span>
+                    <div class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600"></div>
+                    </li>
 
-                <div class="mb-5">
-                    <label for="ketua" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Ketua</label>
-                    <input type="text" id="ketua" 
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-                               focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                               dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                </div>
+                    <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
+                    "index": 2
+                    }'>
+                    <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
+                        <span class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                        <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">2</span>
+                        <svg class="hidden shrink-0 size-3 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        </span>
+                        <span class="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                        Step
+                        </span>
+                    </span>
+                    <div class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600"></div>
+                    </li>
 
-                <div class="mb-5">
-                    <label for="wakil" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Wakil</label>
-                    <input type="text" id="wakil" 
-                        class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg 
-                               bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 
-                               dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                </div>
+                    <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
+                        "index": 3
+                    }'>
+                    <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
+                        <span class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                        <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">3</span>
+                        <svg class="hidden shrink-0 size-3 hs-stepper-success:block" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        </span>
+                        <span class="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                        Step
+                        </span>
+                    </span>
+                    <div class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600"></div>
+                    </li>
+                    <!-- End Item -->
+                </ul>
+                <!-- End Stepper Nav -->
 
-                <div class="mb-5">
-                    <label for="visi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi</label>
-                    <textarea id="visi" rows="4" 
-                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
-                               border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
-                               dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
-                </div>
-
-                <div class="mb-5">
-                    <label for="misi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi</label>
-                    <!-- Card Editor -->
-                    <div class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                        <!-- Toolbar -->
-                        @include('components.wysiwyg-toolbar')
-                        <!-- Editor Area -->
-                        <div class="px-4 text-sm text-gray-800 dark:bg-gray-800 rounded-b-lg focus:outline-none"
-                             id="wysiwyg-typography-example">
-                        </div>
+                <!-- Stepper Content -->
+                <div class="mt-5 sm:mt-8">
+                    <!-- First Content -->
+                    <div data-hs-stepper-content-item='{
+                    "index": 1
+                    }'>
+                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                        <h3 class="text-gray-500 dark:text-neutral-500">
+                        First content
+                        </h3>
                     </div>
-                </div>
+                    </div>
+                    <!-- End First Content -->
 
-                <div class="mt-6 flex justify-start flex-wrap gap-2">
-                    <button type="button" 
-                            class="px-5 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-300">
-                        Tambah
+                    <!-- First Content -->
+                    <div data-hs-stepper-content-item='{
+                    "index": 2
+                    }' style="display: none;">
+                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                        <h3 class="text-gray-500 dark:text-neutral-500">
+                        Second content
+                        </h3>
+                    </div>
+                    </div>
+                    <!-- End First Content -->
+
+                    <!-- First Content -->
+                    <div data-hs-stepper-content-item='{
+                    "index": 3
+                    }' style="display: none;">
+                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                        <h3 class="text-gray-500 dark:text-neutral-500">
+                        Third content
+                        </h3>
+                    </div>
+                    </div>
+                    <!-- End First Content -->
+
+                    <!-- Final Content -->
+                    <div data-hs-stepper-content-item='{
+                    "isFinal": true
+                    }' style="display: none;">
+                    <div class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
+                        <h3 class="text-gray-500 dark:text-neutral-500">
+                        Final content
+                        </h3>
+                    </div>
+                    </div>
+                    <!-- End Final Content -->
+
+                    <!-- Button Group -->
+                    <div class="mt-5 flex justify-between items-center gap-x-2">
+                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700" data-hs-stepper-back-btn="">
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6"></path>
+                        </svg>
+                        Back
                     </button>
-                    <a href="{{ route('dashboard.candidate.index') }}" 
-                            class="px-5 py-2 bg-gray-600 text-white text-sm rounded-lg shadow hover:bg-gray-700 focus:ring-2 focus:ring-gray-300">
-                        Batal
-                    </a>
+                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-next-btn="">
+                        Next
+                        <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"></path>
+                        </svg>
+                    </button>
+                    <button type="button" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-finish-btn="" style="display: none;">
+                        Finish
+                    </button>
+                    <button type="reset" class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" data-hs-stepper-reset-btn="" style="display: none;">
+                        Reset
+                    </button>
+                    </div>
+                    <!-- End Button Group -->
                 </div>
+                <!-- End Stepper Content -->
+                </div>
+                <!-- End Stepper -->
+
             </form>
         </div>
 

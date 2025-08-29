@@ -8,7 +8,7 @@
         
         <!-- Kolom Form -->
         <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6 md:p-8">
-            <form>
+
                 <div class="mb-5">
                     <label for="ketua" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama Ketua</label>
                     <input type="text" id="ketua" 
@@ -56,7 +56,6 @@
                         Batal
                     </a>
                 </div>
-            </form>
         </div>
 
         <!-- Kolom Upload Gambar -->
