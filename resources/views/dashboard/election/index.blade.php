@@ -143,7 +143,7 @@
                         2025-05-12 10:00:00
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ url('/dashboard/election/show') }}" class="font-medium text-blue-500hover:underline">
+                        <a href="{{ url('/dashboard/election/show') }}" class="font-medium text-blue-500 hover:underline">
                         <i class="ri-eye-fill"></i>
                             Detail
                         </a>
