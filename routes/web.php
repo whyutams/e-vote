@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
+
+Route::middleware('guest')->group(function () {
+    Route::redirect('/', '/login');
+    Route::get('/login', [UserController::class, 'login'])->name('login');
+    Route::post('/login', [UserController::class, 'proses_login'])->name('login.submit');
+    Route::get('/dashboard/login', [UserController::class, 'dashboard_login'])->name('dashboard.login');
+    Route::post('/dashboard/login', [UserController::class, 'proses_dashboard_login'])->name('dashboard.login.submit');
 });
+
+Route::middleware('auth')->group(function () {
+    Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+});
+
 
 Route::prefix('dashboard')->group(function () {
 
@@ -32,7 +43,7 @@ Route::prefix('dashboard')->group(function () {
             return view('dashboard.election.create');
         })->name('dashboard.election.create');
 
-        Route::get('/edit', function (){
+        Route::get('/edit', function () {
             return view('dashboard.election.edit');
         })->name('dashboard.election.edit');
 
@@ -54,7 +65,7 @@ Route::prefix('dashboard')->group(function () {
                 return view('dashboard.election.create.create_voter', ['id' => $id]);
             })->name('dashboard.election.create_voter');
         });
-        
+
         // EDIT (di dalam show)
         Route::prefix('{id}/edit')->group(function () {
             Route::get('/election', function ($id) {
@@ -81,7 +92,7 @@ Route::prefix('dashboard')->group(function () {
             return view('dashboard.users.create');
         })->name('dashboard.users.create');
 
-        Route::get('/edit', function (){
+        Route::get('/edit', function () {
             return view('dashboard.users.edit');
         })->name('dashboard.users.edit');
     });
@@ -90,6 +101,9 @@ Route::prefix('dashboard')->group(function () {
 Route::prefix('voter')->group(function () {
     Route::get('/', function () {
         return view('voter.index');
-    })->name('dashboard.voter.index');
+    })->name('voter.index');
+    Route::get('/vote_candidate', function () {
+        return view('voter.voter');
+    })->name('voter.voter');
 });
 

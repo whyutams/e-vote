@@ -134,7 +134,7 @@
                         Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
                     </td>
                     <td class="px-6 py-4">
-                        <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm">tutup</span>
+                        <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm">selesai</span>
                     </td>
                     <td class="px-6 py-4">
                         2025-05-12 08:00:00

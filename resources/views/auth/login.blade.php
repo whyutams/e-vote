@@ -20,12 +20,25 @@
     <div class="absolute inset-0 flex flex-col justify-center px-8">
       <h1 class="text-center text-3xl font-extrabold text-white drop-shadow-lg mb-8">Vitely</h1>
 
-      <form class="mt-6 space-y-4">
+      @if ($errors->any())
+        <div class="mb p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+          <ul class="list-disc list-inside">
+            @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+            @endforeach
+          </ul>
+        </div>
+      @endif
+      
+      <form class="mt-6 space-y-4" action="{{ route('login.submit') }}" method="POST">
+        @csrf
+
         <input 
           type="text" 
           name="nomor_identitas" 
           placeholder="Nomor Identitas" 
           required
+          value="{{ old('nomor_identitas') }}"
           class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none"
         >
 
@@ -43,7 +56,12 @@
         >
           Login
         </button>
+
       </form>
+      <a href="{{ url('/dashboard/login') }}" 
+          class="hapus-kandidat mt-7 text-white hover:text-black text-xl">
+          Login Admin
+      </a>
     </div>
   </div>
 
