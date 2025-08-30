@@ -18,6 +18,7 @@ class Election extends Model
         'start_date',
         'end_date',
         'status',
+        'code',
         'added_by',
         'updated_by'
     ];

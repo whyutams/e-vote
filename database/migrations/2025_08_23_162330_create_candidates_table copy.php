@@ -10,13 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('elections', function (Blueprint $table) {
+        Schema::create('candidates', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 150)->unique();
-            $table->text('description')->nullable();
-            $table->dateTime('start_date');
-            $table->dateTime('end_date');
-            $table->enum('status', ['draft', 'active', 'closed'])->default('draft');
+            $table->foreignId('election_id')->constrained('elections')->onDelete('cascade');
+            $table->string('name', 100);
+            $table->text('vision')->nullable();
+            $table->text('mission')->nullable();
+            $table->string('photo')->nullable();
             $table->foreignId('added_by')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
@@ -28,6 +28,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('elections');
+        Schema::dropIfExists('candidates');
     }
 };
