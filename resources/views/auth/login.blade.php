@@ -34,7 +34,7 @@
         @csrf
 
         <input 
-          type="text" 
+          type="number" 
           name="nomor_identitas" 
           placeholder="Nomor Identitas" 
           required

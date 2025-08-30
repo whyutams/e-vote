@@ -16,7 +16,7 @@
             <i class="ri-team-line text-2xl text-green-600"></i>
         </div>
         <div>
-            <p class="text-sm text-gray-500">Total Kandidat</p>
+            <p class="text-sm text-gray-500">Total Pemilihan</p>
             <h2 class="text-2xl font-bold text-gray-800">3</h2>
         </div>
     </div>
@@ -53,12 +53,24 @@
         </div>
     </div>
 
+    <div class="bg-white rounded-2xl col-span-4 shadow p-4 justify-center flex items-center space-x-4">
+        <form class="max-w-sm w-full mx-auto">
+            <label for="countries" class="block text-sm text-center mb-2 font-medium text-gray-900">Data Statistik</label>
+            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                <option selected>Pilih Pemilihan</option>
+                <option value="US">Pemilihan Ketua OSIS</option>
+                <option value="CA">Pemilihan Ketua Pramuka</option>
+                <option value="FR">Pemilihan Ketua PIK-R</option>
+            </select>
+        </form>
+    </div>
+
     <div class="glass-card p-6 lg:col-span-2 hover-scale">
         <canvas id="voteChart" height="250"></canvas>
     </div>
 
     <div class="glass-card p-6 lg:col-span-2 hover-scale">
-        <h3 class="font-semibold mb-4">Voting Timeline</h3>
+        <h3 class="font-semibold mb-4">Timeline Pemungutan Suara</h3>
         <canvas id="timelineChart" height="250"></canvas>
     </div>
 </div>
@@ -74,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function() {
         data: {
             labels: ['Nomor Urut 1', 'Nomor Urut 2', 'Nomor Urut 3'],
             datasets: [{
-                label: 'Votes',
+                label: 'Data',
                 data: [300, 150, 100],
                 backgroundColor: [
                     'rgba(59, 130, 246, 0.7)',
@@ -93,8 +105,8 @@ document.addEventListener("DOMContentLoaded", function() {
         data: {
             labels: ['08:00', '10:00', '12:00', '14:00', '16:00'],
             datasets: [{
-                label: 'Votes Cast',
-                data: [20, 50, 120, 180, 220],
+                label: 'Data',
+                data: [200, 8, 120, 180, 120],
                 fill: true,
                 borderColor: 'rgba(59, 130, 246, 1)',
                 backgroundColor: 'rgba(59, 130, 246, 0.2)',
