@@ -6,8 +6,8 @@
   <title>Login</title>
   @vite('resources/css/app.css')
 </head>
-<div class="absolute top-10 left-10 w-80 h-80 bg-violet-900 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
-<div class="absolute bottom-20 right-16 w-56 h-56 bg-indigo-900 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+<div class="absolute top-10 left-10 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse"></div>
+<div class="absolute bottom-20 right-16 w-56 h-56 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
 <div class="absolute top-1/2 left-1/3 w-56 h-56 bg-pink-900 rounded-full mix-blend-multiply filter blur-2xl opacity-30"></div>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
 
@@ -23,23 +23,23 @@
       <form class="mt-6 space-y-4">
         <input 
           type="text" 
-          name="nomor_induk" 
-          placeholder="NIK, NIS, NIM, NIP" 
+          name="nomor_identitas" 
+          placeholder="Nomor Identitas" 
           required
-          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-violet-500 bg-white shadow-md placeholder-gray-400 focus:outline-none"
+          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none"
         >
 
         <input 
           type="password" 
           name="password" 
-          placeholder="PASSWORD" 
+          placeholder="Password" 
           required
-          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-violet-500 bg-white shadow-md placeholder-gray-400 focus:outline-none"
+          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none"
         >
 
         <button 
           type="submit" 
-          class="w-full py-3 rounded-2xl font-bold text-white bg-gradient-to-r from-violet-600 to-indigo-500 shadow-lg transform transition duration-200 hover:scale-105 active:scale-95"
+          class="w-full py-3 rounded-2xl font-bold text-white bg-gradient-to-r from-blue-700 to-indigo-600 shadow-lg transform transition duration-200 hover:scale-105 hover:from-indigo-600 hover:to-blue-700 active:scale-95"
         >
           Login
         </button>
