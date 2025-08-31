@@ -31,7 +31,7 @@
          </li>
          <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-300">
          <li>
-            <form action="{{ route('logout') }}" method="POST">
+            <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Yakin ingin logout?')">
                @csrf
                <button type="submit"
                   class="w-full text-left flex items-center p-2 rounded-lg group hover-scale text-gray-600 hover:bg-gray-100">
