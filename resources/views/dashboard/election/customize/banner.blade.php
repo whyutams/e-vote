@@ -35,23 +35,26 @@
                     <form action="{{ route('dashboard.elections.start', $election->id) }}" method="POST" class="inline">
                         @csrf
                         @method('PATCH')
-                        <button type="submit" 
-                            class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
+                        <button type="submit" id="btn-start"
+                            class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2
                                 text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
                                 hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
                             Mulai
                         </button>
                     </form>
-                    <a href="{{ route('dashboard.elections.edit', $election->id) }}" class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
-                                    text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
-                                    hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
+
+                    <a href="{{ route('dashboard.elections.edit', $election->id) }}" 
+                    class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
+                            text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
+                            hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
                         Edit
                     </a>
+
                     <form action="{{ route('dashboard.elections.close', $election->id) }}" method="POST" class="inline">
                         @csrf
                         @method('PATCH')
-                        <button type="submit" 
-                            class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
+                        <button type="submit" id="btn-close"
+                            class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2
                                 text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
                                 hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
                             Tutup
@@ -60,64 +63,109 @@
                 </div>
 
                 <!-- Countdown -->
-                <div class="flex flex-wrap justify-center gap-3 sm:gap-4" data-countdown="{{ $election->end_date }}">
-                    <div
-                        class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
-                        <span id="days" class="block text-xl sm:text-2xl font-bold text-white">00</span>
-                        <span class="text-xs sm:text-sm text-gray-100">Hari</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
-                        <span id="hours" class="block text-xl sm:text-2xl font-bold text-white">00</span>
-                        <span class="text-xs sm:text-sm text-gray-100">Jam</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
-                        <span id="minutes" class="block text-xl sm:text-2xl font-bold text-white">00</span>
-                        <span class="text-xs sm:text-sm text-gray-100">Menit</span>
-                    </div>
-                    <div
-                        class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
-                        <span id="seconds" class="block text-xl sm:text-2xl font-bold text-white">00</span>
-                        <span class="text-xs sm:text-sm text-gray-100">Detik</span>
-                    </div>
+                <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+                    @if ($election->status == 'draft')
+                        <div class="bg-gray-100 rounded-lg p-6 text-center w-full backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                            <span class="block text-lg sm:text-xl font-semibold text-gray-700">⏳ Pemilihan belum dimulai</span>
+                        </div>
+                    @elseif ($election->status == 'active')
+                        <div class="flex flex-wrap justify-center gap-3 sm:gap-4" data-countdown="{{ $election->end_date }}">
+                            <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] 
+                                        backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                                <span id="days" class="block text-xl sm:text-2xl font-bold text-white">00</span>
+                                <span class="text-xs sm:text-sm text-gray-100">Hari</span>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] 
+                                        backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                                <span id="hours" class="block text-xl sm:text-2xl font-bold text-white">00</span>
+                                <span class="text-xs sm:text-sm text-gray-100">Jam</span>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] 
+                                        backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                                <span id="minutes" class="block text-xl sm:text-2xl font-bold text-white">00</span>
+                                <span class="text-xs sm:text-sm text-gray-100">Menit</span>
+                            </div>
+                            <div class="bg-gray-100 rounded-lg p-3 sm:p-4 text-center min-w-[80px] sm:min-w-[90px] 
+                                        backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                                <span id="seconds" class="block text-xl sm:text-2xl font-bold text-white">00</span>
+                                <span class="text-xs sm:text-sm text-gray-100">Detik</span>
+                            </div>
+                        </div>
+                    @elseif ($election->status == 'closed')
+                        <div class="bg-gray-100 rounded-lg p-6 text-center w-full backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
+                            <span class="block text-lg sm:text-xl font-semibold text-gray-700">❌ Pemilihan sudah ditutup</span>
+                        </div>
+                    @endif
                 </div>
+
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const countdownEl = document.querySelector("[data-countdown]");
-        if (!countdownEl) return;
+document.addEventListener("DOMContentLoaded", function () {
+    const countdownEl = document.querySelector("[data-countdown]");
+    const btnStart = document.getElementById("btn-start");
+    const btnClose = document.getElementById("btn-close");
 
-        const endDate = new Date(countdownEl.dataset.countdown).getTime();
+    if (!countdownEl) return;
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = endDate - now;
+    const endDate = new Date(countdownEl.dataset.countdown).getTime();
 
-            if (distance < 0) {
-                document.getElementById("days").textContent = "00";
-                document.getElementById("hours").textContent = "00";
-                document.getElementById("minutes").textContent = "00";
-                document.getElementById("seconds").textContent = "00";
-                return;
+    function setButtonState(status) {
+        if (status === "draft") {
+            btnStart.disabled = false;
+            btnClose.disabled = true;
+        } else if (status === "active") {
+            btnStart.disabled = true;
+            btnClose.disabled = false;
+        } else {
+            btnStart.disabled = true;
+            btnClose.disabled = true;
+        }
+    }
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = endDate - now;
+
+        if (distance <= 0) {
+            // otomatis close
+            setButtonState("closed");
+
+            if (!window.electionClosed) {
+                window.electionClosed = true;
+                fetch("{{ route('dashboard.elections.close', $election->id) }}", {
+                    method: "PATCH",
+                    headers: {
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                        "Content-Type": "application/json"
+                    },
+                }).then(() => {
+                    console.log("Election closed automatically.");
+                    location.reload(); // supaya badge status ikut berubah
+                });
             }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("days").textContent = String(days).padStart(2, '0');
-            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
-            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+            return;
         }
 
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-    });
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = String(days).padStart(2, '0');
+        document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+        document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+        document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+    }
+
+    // inisialisasi tombol sesuai status sekarang dari backend
+    setButtonState("{{ $election->status }}");
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+});
+
 </script>
