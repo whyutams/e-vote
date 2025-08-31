@@ -25,17 +25,7 @@
 
                 <h1 class="text-xl font-semibold">Misi</h1>
                 <p class="ms-3 text-base leading-relaxed text-gray-500">
-                    1. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, quisquam.
-                    <br>
-                    2. Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, in!
-                    <br>
-                    3. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, saepe.
-                    <br>
-                    4. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tenetur, qui.
-                    <br>
-                    5. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate, minus?
-                    <br>
-                    6. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus, fugiat!
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum perferendis totam voluptate nihil expedita? Ut earum, fugit corrupti quaerat exercitationem repellat ipsa temporibus eius reiciendis ullam eligendi quod ex eveniet doloribus quo quisquam eum totam, consequuntur ad! Voluptas id quo, exercitationem dolorum nam nihil sint quam expedita ad fuga alias sit reiciendis ab quasi deleniti ipsum odio officia eaque? Nobis aspernatur enim, neque quidem autem dolorum minima atque ea animi distinctio perspiciatis id recusandae eos incidunt voluptas omnis placeat ipsam accusantium at ducimus! Unde, temporibus similique culpa cupiditate qui odit cum repudiandae veritatis dolor doloribus quas voluptatem pariatur quis deleniti.
                 </p>
             </div>
         </div>
