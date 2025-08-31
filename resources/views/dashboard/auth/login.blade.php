@@ -55,21 +55,16 @@
             <input type="password" name="password" required placeholder="Password"
               class="w-full h-12 text-gray-900 placeholder:text-gray-400 text-lg font-normal leading-7 rounded-full border-gray-300 border shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 px-4">
 
-            {{-- Forgot Password (opsional, bisa diarahkan ke route forgot password nanti) --}}
-            <a href="javascript:;" class="flex justify-end">
-              <span class="text-indigo-600 text-right text-sm font-medium">Forgot Password?</span>
-            </a>
-
             {{-- Login Button --}}
             <button type="submit"
-              class="w-full h-12 text-white text-center text-base font-semibold leading-6 rounded-full hover:bg-indigo-800 transition-all duration-700 bg-indigo-600 shadow-sm">
+              class="w-full h-12 text-white text-center text-base font-semibold leading-6 rounded-full hover:bg-blue-800 transition-all duration-700 bg-blue-600 shadow-sm">
               Login
             </button>
 
             {{-- Link ke login pemilih --}}
             <a href="{{ url('/login') }}" class="flex justify-center text-gray-900 text-base font-medium leading-6">
               Login sebagai Pemilih? 
-              <span class="text-indigo-600 font-semibold pl-2">Klik di sini</span>
+              <span class="text-blue-600 font-semibold pl-2">Klik di sini</span>
             </a>
           </form>
         </div>

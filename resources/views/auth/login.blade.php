@@ -57,14 +57,14 @@
 
             {{-- Tombol Login --}}
             <button type="submit"
-              class="w-full h-12 text-white text-center text-base font-semibold rounded-full hover:bg-indigo-800 transition-all duration-700 bg-indigo-600 shadow-sm">
+              class="w-full h-12 text-white text-center text-base font-semibold rounded-full hover:bg-blue-800 transition-all duration-700 bg-blue-600 shadow-sm">
               Login
             </button>
 
             {{-- Link ke login admin --}}
             <a href="{{ url('/dashboard/login') }}" class="flex justify-center text-gray-900 text-base font-medium leading-6">
               Login sebagai Admin? 
-              <span class="text-indigo-600 font-semibold pl-2">Klik di sini</span>
+              <span class="text-blue-600 font-semibold pl-2">Klik di sini</span>
             </a>
           </form>
         </div>
