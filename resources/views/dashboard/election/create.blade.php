@@ -276,74 +276,6 @@
                                     });
                                 </script>
 
-                                {{-- <div
-                                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6">
-                                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Data Kandidat
-                                    </h3>
-                                    <div class="flex flex-col md:flex-row gap-6">
-                                        <div class="flex-1">
-                                            <div class="mb-5">
-                                                <label for="ketua"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                                    Ketua</label>
-                                                <input type="text" id="ketua"
-                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-                                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                                                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                            </div>
-
-                                            <div class="mb-5">
-                                                <label for="wakil"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                                    Wakil</label>
-                                                <input type="text" id="wakil" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg 
-                                                        bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 
-                                                        dark:bg-gray-700 dark:border-gray-600 dark:text-white">
-                                            </div>
-
-                                            <div class="mb-5">
-                                                <label for="visi"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi</label>
-                                                <textarea id="visi" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
-                                                        border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
-                                                        dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
-                                            </div>
-
-                                            <div class="mb-5">
-                                                <label for="misi"
-                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi</label>
-                                                <!-- Card Editor -->
-                                                <div
-                                                    class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                                                    <!-- Toolbar -->
-                                                    @include('components.wysiwyg-toolbar')
-                                                    <!-- Editor Area -->
-                                                    <div class="px-4 text-sm text-gray-800 dark:bg-gray-800 rounded-b-lg focus:outline-none"
-                                                        id="wysiwyg-typography-example">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-7 flex-1">
-                                            <!-- Kolom Upload Gambar -->
-                                            <div
-                                                class="w-full self-start bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6 flex flex-col items-center justify-center">
-                                                <!-- Preview -->
-                                                <div
-                                                    class="w-full h-48 flex items-center justify-center bg-gray-100 rounded-lg mb-4">
-                                                    <img id="previewImage" src="https://placehold.co/200"
-                                                        class="rounded-lg object-cover w-full h-full">
-                                                </div>
-                                                <h3 class="text-md font-semibold mb-4 text-gray-700 dark:text-gray-200">
-                                                    Upload Gambar</h3>
-                                                <input type="file" id="gambar"
-                                                    class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                             </div>
 
                             <!-- End First Content -->
@@ -390,20 +322,6 @@
                             </div>
                             <!-- End Step 3 Content -->
 
-
-                            <!-- Final Content -->
-                            <div data-hs-stepper-content-item='{
-                            "isFinal": true
-                            }' style="display: none;">
-                                <div
-                                    class="p-4 h-48 bg-gray-50 flex justify-center items-center border border-dashed border-gray-200 rounded-xl dark:bg-neutral-800 dark:border-neutral-700">
-                                    <h3 class="text-gray-500 dark:text-neutral-500">
-                                        Data berhasil disimpan!
-                                    </h3>
-                                </div>
-                            </div>
-                            <!-- End Final Content -->
-
                             <!-- Button Group -->
                             <div class="mt-5 flex justify-between items-center gap-x-2">
                                 <button type="button"
@@ -416,6 +334,10 @@
                                     </svg>
                                     Kembali
                                 </button>
+                                <a href="{{ route('dashboard.election.index') }}"
+                                    class="px-5 py-2 bg-gray-600 text-white text-sm rounded-lg shadow hover:bg-gray-700 focus:ring-2 focus:ring-gray-300">
+                                    Batal
+                                </a>
                                 <button type="button"
                                     class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
                                     data-hs-stepper-next-btn="">
