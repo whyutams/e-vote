@@ -11,8 +11,8 @@
             </a>
          </li>
          <li>
-            <a href="{{ route('dashboard.election.index') }}" class="flex items-center p-2 rounded-lg group hover-scale
-            {{ Request::is('dashboard/election') ? 'bg-blue-500 text-gray-100' : 'text-gray-600 hover:bg-gray-100' }}">
+            <a href="{{ route('dashboard.elections.index') }}" class="flex items-center p-2 rounded-lg group hover-scale
+            {{ Request::is('dashboard/elections') ? 'bg-blue-500 text-gray-100' : 'text-gray-600 hover:bg-gray-100' }}">
                <span class="material-symbols-outlined">
                   how_to_vote
                </span>
