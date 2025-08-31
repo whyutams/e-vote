@@ -97,6 +97,22 @@ class ElectionController extends Controller
         return view('dashboard.election.show', compact('election', 'candidates'));
     }
 
+    public function start(Election $election)
+    {
+        $election->update(['status' => 'active']);
+
+        return redirect()->route('dashboard.elections.index', ['election' => $election->id])
+            ->with('success', 'Election berhasil dimulai.');
+    }
+
+    public function close(Election $election)
+    {
+        $election->update(['status' => 'closed']);
+
+        return redirect()->route('dashboard.elections.index', ['election' => $election->id])
+            ->with('success', 'Election berhasil ditutup.');
+    }
+
     /**
      * Display the specified resource.
      */

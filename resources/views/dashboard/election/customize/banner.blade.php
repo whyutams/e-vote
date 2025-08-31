@@ -32,21 +32,31 @@
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="text-white text-center md:text-left">
                     <h3 class="text-xl font-semibold mb-2">Waktu Pemilihan</h3>
-                    <button type="button" class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
-                                    text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
-                                    hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
-                        Mulai
-                    </button>
+                    <form action="{{ route('dashboard.elections.start', $election->id) }}" method="POST" class="inline">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" 
+                            class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
+                                text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
+                                hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
+                            Mulai
+                        </button>
+                    </form>
                     <a href="{{ route('dashboard.elections.edit', $election->id) }}" class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
                                     text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
                                     hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
                         Edit
                     </a>
-                    <button type="button" class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
-                                    text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
-                                    hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
-                        Tutup
-                    </button>
+                    <form action="{{ route('dashboard.elections.close', $election->id) }}" method="POST" class="inline">
+                        @csrf
+                        @method('PATCH')
+                        <button type="submit" 
+                            class="bg-gray-100 rounded-lg text-sm font-medium px-5 py-2.5 me-2 mb-2 
+                                text-center backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200
+                                hover:bg-gray-200 hover:border-gray-300 hover:shadow-md transition">
+                            Tutup
+                        </button>
+                    </form>
                 </div>
 
                 <!-- Countdown -->
