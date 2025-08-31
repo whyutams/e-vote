@@ -11,9 +11,10 @@
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg rounded-lg  dark:bg-gray-800 dark:border-gray-700">
         @if (session('success'))
-            <div class="px-5 pt-5">
-                <div class="p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                    {{ session('success') }}
+            <div class="px-5 pt-5" id="alert-success">
+                <div class="p-4 flex justify-between bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                    <span>{{ session('success') }}</span>
+                    <span><i class="ri-close-line text-lg cursor-pointer" data-dismiss-target="#alert-success"></i></span>
                 </div>
             </div>
         @endif
@@ -88,10 +89,10 @@
                                 {{ $admin->username }}
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $admin->callname }}
+                                {{ $admin->fullname }}
                             </th>
                             <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                {{ $admin->fullname }}
+                                {{ $admin->callname }}
                             </th>
                             <td class="px-6 py-4">
                                 {{ $admin->email ?? "-" }}
@@ -104,14 +105,13 @@
                                     class="font-medium text-yellow-500 dark:text-yellow-500 hover:underline">
                                     <i class="ri-pencil-fill text-lg"></i>
                                     Ubah
-                                </a> 
+                                </a>
 
                                 <form action="{{ route('dashboard.admins.delete', ['user' => $admin->id]) }}" method="POST"
                                     class="inline" onsubmit="return confirm('Yakin ingin menghapus data?')">
                                     @csrf
                                     @method('DELETE')
-                                    <button
-                                        class="font-medium text-red-600 dark:text-red-500 hover:underline ms-2">
+                                    <button class="font-medium text-red-600 dark:text-red-500 hover:underline ms-2">
                                         <i class="ri-delete-bin-fill text-lg"></i> Hapus
                                     </button>
                                 </form>

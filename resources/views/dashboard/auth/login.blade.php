@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
-  @vite('resources/css/app.css')
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 </head>
 <div
   class="absolute top-10 left-10 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse">
@@ -29,12 +30,14 @@
       <h1 class="text-center text-3xl font-extrabold text-white drop-shadow-lg mb-8">Vitely</h1>
 
       @if ($errors->any())
-        <div class="mb p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+        <div class="mb p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between" id="alert-error">
           <ul class="list-disc list-inside">
             @foreach ($errors->all() as $error)
               <li>{{ $error }}</li>
             @endforeach
           </ul>
+          <span class="my-auto"><i class="ri-close-line text-lg cursor-pointer"
+          data-dismiss-target="#alert-error"></i></span>
         </div>
       @endif
 
