@@ -7,12 +7,10 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100">
 
   <section class="flex justify-center relative min-h-screen">
     {{-- Background --}}
-    <img src="https://pagedone.io/asset/uploads/1702362010.png" alt="background" 
-         class="w-full h-full object-cover fixed">
 
     <div class="mx-auto max-w-lg px-6 lg:px-8 absolute inset-0 flex items-center justify-center">
       <div class="w-full">

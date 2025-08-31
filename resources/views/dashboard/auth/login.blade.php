@@ -7,19 +7,15 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<body>
+<body class="bg-gray-100">
 
   <section class="flex justify-center relative min-h-screen">
     {{-- Background Image --}}
-    <img src="https://pagedone.io/asset/uploads/1702362010.png" alt="gradient background image" 
-         class="w-full h-full object-cover fixed">
 
     <div class="mx-auto max-w-lg px-6 lg:px-8 absolute inset-0 flex items-center justify-center">
       <div class="w-full">
         {{-- Logo --}}
-        <img src="https://pagedone.io/asset/uploads/1702362108.png" 
-             alt="pagedone logo" 
-             class="mx-auto lg:mb-11 mb-8 object-cover">
+        <h1 class="text-center text-2xl font-extrabold text-blue-500 drop-shadow-lg mb-10"> <i class="ri-bar-chart-2-fill text-white bg-blue-500 p-2 rounded-md"></i> Vitely</h1>
 
         <div class="rounded-2xl bg-white shadow-xl">
           {{-- Form --}}
