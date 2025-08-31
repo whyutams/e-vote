@@ -27,7 +27,7 @@
     </div>
 
     <div class="mb-3 me-2">
-        <a href="/#"
+        <a href="{{ route('dashboard.candidates.create', $election->id) }}"
             class="inline-flex items-center px-3 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg shadow hover:bg-blue-700 transition">
             <i class="ri-add-line mr-1 text-lg"></i>
             Tambah Data
@@ -60,7 +60,7 @@
                                 type="button">
                                 Visi Misi
                             </button>
-                            <form action="{{ route('dashboard.candidates.delete', $candidate->id) }}" method="post" onsubmit="return confirm('Yakin ingin menghapus?')">
+                            <form action="{{ route('dashboard.candidates.delete', ['election'=>$election->id, 'candidate'=>$candidate->id]) }}" method="post" onsubmit="return confirm('Yakin ingin menghapus?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"

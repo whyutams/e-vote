@@ -24,9 +24,6 @@ class CandidateController extends Controller
      */
     public function create(Election $election)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         return "view dashboard candidate create";
     }
@@ -36,9 +33,6 @@ class CandidateController extends Controller
      */
     public function store(Request $request, Election $election)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         $validated = $request->validate([
             'name' => 'required|string|max:100',
@@ -70,9 +64,6 @@ class CandidateController extends Controller
      */
     public function edit(Election $election, Candidate $candidate)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         return "view dashboard candidate edit";
     }
@@ -82,9 +73,6 @@ class CandidateController extends Controller
      */
     public function update(Request $request, Election $election, Candidate $candidate)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         $validated = $request->validate([
             'name' => 'required|string|max:100',
@@ -105,7 +93,7 @@ class CandidateController extends Controller
         $candidate->update($validated);
 
         return redirect()->route('elections.candidates.index', $election->id)
-            ->with('success', 'Candidate berhasil diperbarui.');
+            ->with('success', 'Kandidat berhasil diperbarui.');
     }
 
     /**
@@ -113,17 +101,13 @@ class CandidateController extends Controller
      */
     public function destroy(Election $election, Candidate $candidate)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
-
         if ($candidate->photo && Storage::disk('public')->exists($candidate->photo)) {
             Storage::disk('public')->delete($candidate->photo);
         }
 
         $candidate->delete();
 
-        return redirect()->route('elections.candidates.index', $election->id)
-            ->with('success', 'Candidate berhasil dihapus.');
+        return redirect()->route('dashboard.elections.show', $election->id)
+            ->with('success', 'Kandidat berhasil dihapus.');
     }
 }
