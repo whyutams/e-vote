@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="mb-6">
-                        <p>Pemilihan ini bertujuan memilih Ketua Pramuka periode 2025/2026</p>
+                        <p>Pemilihan ini bertujuan memilih Ketua Pramuka periode 2025 lorem100</p>
                     </div>
 
                     <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
