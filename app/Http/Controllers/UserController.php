@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Election;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -78,46 +79,46 @@ class UserController extends Controller
     public function update_profile()
     {
         $user = auth()->user();
-         return view('dashboard.profile.index', compact('user'));
+        return view('dashboard.profile.index', compact('user'));
     }
 
-public function proses_update_profile(Request $request)
-{
-    $user = auth()->user();
+    public function proses_update_profile(Request $request)
+    {
+        $user = auth()->user();
 
-    $request->validate([
-        'fullname' => 'required|string|max:100',
-        'callname' => 'required|string|max:10',
-        'email' => [
-            'nullable',
-            'email',
-            Rule::unique('users', 'email')->ignore($user->id),
-        ],
-        'phone' => [
-            'required',
-            'numeric',
-            'digits_between:6,20',
-            Rule::unique('users', 'phone')->ignore($user->id),
-        ],
-        'password' => 'nullable|min:6|confirmed',
-    ]);
+        $request->validate([
+            'fullname' => 'required|string|max:100',
+            'callname' => 'required|string|max:10',
+            'email' => [
+                'nullable',
+                'email',
+                Rule::unique('users', 'email')->ignore($user->id),
+            ],
+            'phone' => [
+                'required',
+                'numeric',
+                'digits_between:6,20',
+                Rule::unique('users', 'phone')->ignore($user->id),
+            ],
+            'password' => 'nullable|min:6|confirmed',
+        ]);
 
-    $data = [
-        'fullname' => $request->fullname,
-        'callname' => $request->callname,
-        'email'    => $request->email,
-        'phone'    => $request->phone,
-    ];
+        $data = [
+            'fullname' => $request->fullname,
+            'callname' => $request->callname,
+            'email'    => $request->email,
+            'phone'    => $request->phone,
+        ];
 
-    // Update password jika diisi
-    if ($request->filled('password')) {
-        $data['password'] = Hash::make($request->password);
+        // Update password jika diisi
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $user->update($data);
+
+        return redirect()->route('dashboard.profile.index')->with('success', 'Profil berhasil diperbarui.');
     }
-
-    $user->update($data);
-
-    return redirect()->route('dashboard.profile.index')->with('success', 'Profil berhasil diperbarui.');
-}
 
     /* Profile END */
 
@@ -212,4 +213,39 @@ public function proses_update_profile(Request $request)
         return redirect()->route('dashboard.admins.index')->with('success', 'User berhasil dihapus.');
     }
     /* Dashboard END */
+
+    public function destroy(Election $election, User $user)
+    {
+        if ($user->role == Auth::user()->role || $user->role == User::ROLE_SUPERADMIN)
+            return abort('404', 'NOT FOUND');
+
+        $user->delete();
+        return redirect()->route('dashboard.election.show_voter', $election->id)
+            ->with('success', 'Pemilih berhasil diperbarui.');
+    }
+
+    public function create_voter(Election $election)
+    {
+        return view('dashboard.election.create.create_voter', compact('election'));
+    }
+
+    public function store_voter(Request $request, Election $election)
+    {
+        $validated = $request->validate([
+            'nomor_identitas' => 'required|max:50|unique:users,nomor_identitas',
+            'fullname' => 'required|string|max:100',
+            'phone' => 'nullable|numeric|unique:users,phone',
+            'password' => 'required|string|min:6',
+        ]);
+
+        $validated['password'] = Hash::make($validated['password']);
+        $validated['role'] = User::ROLE_USER;
+        $validated['election_id'] = $election->id;
+
+        User::create($validated);
+
+
+        return redirect()->route('dashboard.elections.show', $election->id)
+            ->with('success', 'Pemilih berhasil ditambahkan.');
+    }
 }

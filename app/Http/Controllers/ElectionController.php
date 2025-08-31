@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Candidate;
 use App\Models\Election;
 use App\Models\User;
+use App\Models\Vote;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -75,8 +76,6 @@ class ElectionController extends Controller
                     'added_by' => Auth::user()->id,
                 ]);
             }
-
-
         });
 
         return redirect()->route('dashboard.elections.index')
@@ -84,18 +83,6 @@ class ElectionController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Election $election)
-    {
-
-        $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
-            ->where('election_id', $election->id)
-            ->get();
-
-        return view('dashboard.election.show', compact('election', 'candidates'));
-    }
 
     public function start(Election $election)
     {
@@ -113,18 +100,36 @@ class ElectionController extends Controller
             ->with('success', 'Election berhasil ditutup.');
     }
 
+    
+    /**
+     * Display the specified resource.
+     */
+    public function show(Election $election)
+    {
+
+        $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
+            ->where('election_id', $election->id)
+            ->get(); 
+        $users = User::where('role', User::ROLE_USER)->where('election_id', $election->id)->get();
+        $voted = Vote::with('user')->get();
+
+        return view('dashboard.election.show', compact('election', 'candidates', 'users', 'voted'));
+    }
+    
     /**
      * Display the specified resource.
      */
     public function show_pemilih(Election $election)
     {
-        $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
+       $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
             ->where('election_id', $election->id)
-            ->get();
+            ->get(); 
+        $users2 = User::where('role', User::ROLE_USER)->where('election_id', $election->id)->get();
+        $voted = Vote::get();
 
         $users = User::where('election_id', $election->id)->get();
 
-        return view('dashboard.election.show_voter', compact('election', 'users'));
+        return view('dashboard.election.show_voter', compact('election', 'users', 'users2', 'candidates', 'voted'));
     }
 
 

@@ -35,7 +35,6 @@ Route::middleware('auth')->group(function () {
             return redirect('/voter');
         } else {
             return redirect('/dashboard');
-
         }
     });
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
@@ -57,25 +56,27 @@ Route::middleware('auth')->group(function () {
             Route::get('/{election}/edit', [ElectionController::class, 'edit'])->name('dashboard.elections.edit');
             Route::post('/{election}/edit', [ElectionController::class, 'update'])->name('dashboard.elections.update');
 
-            Route::get('/{election}/show', [ElectionController::class, 'show'])->name('dashboard.elections.show');  
+            Route::get('/{election}/show', [ElectionController::class, 'show'])->name('dashboard.elections.show');
             Route::patch('/{election}/start', [ElectionController::class, 'start'])->name('dashboard.elections.start');
             Route::patch('/{election}/close', [ElectionController::class, 'close'])->name('dashboard.elections.close');
 
             Route::get('/{election}/voter', [ElectionController::class, 'show_pemilih'])->name('dashboard.election.show_voter');
-            
+
             Route::get('/{election}/show/candidate/create', [CandidateController::class, 'create'])->name('dashboard.candidates.create');
             Route::post('/{election}/show/candidate/create', [CandidateController::class, 'store'])->name('dashboard.candidates.store');
             Route::delete('/{election}/show/{candidate}/delete', [CandidateController::class, 'destroy'])->name('dashboard.candidates.delete');
-            
+
+            Route::delete('/{election}/show/delete_voter/{user}', [UserController::class, 'destroy'])->name('dashboard.users.delete_voter');
+
+            Route::get('/{election}/show/voter/create', [UserController::class, 'create_voter'])->name('dashboard.elections.create_voter');
+            Route::post('/{election}/show/voter/create', [UserController::class, 'store_voter'])->name('dashboard.elections.store_voter');
+
             // CREATE (di dalam show)
             Route::prefix('{id}/create')->group(function () {
                 Route::get('/candidate', function ($id) {
                     return view('dashboard.elections.create.create_candidate', ['id' => $id]);
                 })->name('dashboard.elections.create_candidate');
-
-                Route::get('/voter', function ($id) {
-                    return view('dashboard.elections.create.create_voter', ['id' => $id]);
-                })->name('dashboard.elections.create_voter');
+ 
             });
 
             // EDIT (di dalam show)
@@ -92,7 +93,6 @@ Route::middleware('auth')->group(function () {
                     return view('dashboard.elections.edit.edit_voter', ['id' => $id]);
                 })->name('dashboard.elections.edit_voter');
             });
-
         });
 
         Route::get('/profile', [UserController::class, 'update_profile'])->name('dashboard.profile.index');

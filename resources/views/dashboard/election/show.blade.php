@@ -6,6 +6,48 @@
 
     @include('dashboard.election.customize.banner')
 
+    {{-- Statistik Cards --}}
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+
+
+        <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale w-full">
+            <div class="px-3 py-2 bg-blue-100 rounded-full">
+                <i class="ri-user-3-line  text-2xl text-blue-600"></i>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm text-gray-500">Total Pemilih</p>
+                <h2 class="text-2xl font-bold text-gray-800">{{ $users->count() }}</h2>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale w-full">
+            <div class="px-3 py-2 bg-purple-100 rounded-full">
+                <span class="material-symbols-outlined text-2xl text-purple-600">
+                    how_to_vote
+                </span>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm text-gray-500">Suara Masuk</p>
+                <h2 class="text-2xl font-bold text-gray-800">{{ $voted->count() }}</h2>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale w-full">
+            <div class="px-3 py-2 bg-yellow-100 rounded-full">
+                <i class="ri-pie-chart-2-line text-2xl text-yellow-600"></i>
+            </div>
+            @php
+                $totalUsers = $users->count();
+                $totalVoted = $voted->count();
+                $participation = $totalUsers > 0 ? round(($totalVoted / $totalUsers) * 100, 1) : 0;
+            @endphp
+
+            <div class="flex-1">
+                <p class="text-sm text-gray-500">Partisipasi</p>
+                <h2 class="text-2xl font-bold text-gray-800">{{ $participation }}%</h2>
+            </div>
+        </div>
+    </div>
 
     <div class="mb-3 ">
         <ul
@@ -39,10 +81,16 @@
             <!-- Card -->
             <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
                 <div class="p-6">
+
+                    <div class="flex justify-between font-bold mb-6">
+                        <span>No urut {{ $index + 1 }}</span>
+                        <span>Suara: {{ $voted->where('candidate_id', $candidate->id)->count() }}</span>
+                    </div>
+
                     <div class="flex flex-col items-center">
                         <div class="w-34 h-34 mb-4 rounded-2xl overflow-hidden border-4 border-blue-500 shadow-md">
                             <img class="w-full h-full object-cover"
-                                src="@if(!$candidate->photo) https://placehold.co/400 @else {{ asset('storage/' . $candidate->photo) }} @endif"
+                                src="@if (!$candidate->photo) https://placehold.co/400 @else {{ asset('storage/' . $candidate->photo) }} @endif"
                                 alt="kandidat" />
                         </div>
 
@@ -60,7 +108,9 @@
                                 type="button">
                                 Visi Misi
                             </button>
-                            <form action="{{ route('dashboard.candidates.delete', ['election'=>$election->id, 'candidate'=>$candidate->id]) }}" method="post" onsubmit="return confirm('Yakin ingin menghapus?')">
+                            <form
+                                action="{{ route('dashboard.candidates.delete', ['election' => $election->id, 'candidate' => $candidate->id]) }}"
+                                method="post" onsubmit="return confirm('Yakin ingin menghapus?')">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"
@@ -76,4 +126,4 @@
             <div>
         @endforelse
 
-@endsection
+    @endsection

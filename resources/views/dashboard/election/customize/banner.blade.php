@@ -66,7 +66,7 @@
                 <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
                     @if ($election->status == 'draft')
                         <div class="bg-gray-100 rounded-lg p-6 text-center w-full backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
-                            <span class="block text-lg sm:text-xl font-semibold text-gray-700">⏳ Pemilihan belum dimulai</span>
+                            <span class="block text-lg sm:text-xl font-semibold text-gray-100">⏳ Pemilihan belum dimulai</span>
                         </div>
                     @elseif ($election->status == 'active')
                         <div class="flex flex-wrap justify-center gap-3 sm:gap-4" data-countdown="{{ $election->end_date }}">
@@ -93,7 +93,7 @@
                         </div>
                     @elseif ($election->status == 'closed')
                         <div class="bg-gray-100 rounded-lg p-6 text-center w-full backdrop-filter backdrop-blur-sm bg-opacity-40 border border-gray-200">
-                            <span class="block text-lg sm:text-xl font-semibold text-gray-700">❌ Pemilihan sudah ditutup</span>
+                            <span class="block text-lg sm:text-xl font-semibold text-gray-100">❌ Pemilihan sudah ditutup</span>
                         </div>
                     @endif
                 </div>
