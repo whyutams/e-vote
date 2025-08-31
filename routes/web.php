@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
             Route::get('/', [ElectionController::class, 'index'])->name('dashboard.elections.index');
 
             Route::get('/create', [ElectionController::class, 'create'])->name('dashboard.elections.create');
+            Route::post('/create', [ElectionController::class, 'store'])->name('dashboard.elections.store');
 
             Route::get('/edit', function () {
                 return view('dashboard.elections.edit');

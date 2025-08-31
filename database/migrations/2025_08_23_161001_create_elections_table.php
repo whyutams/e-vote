@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('elections', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 150)->unique();
+            $table->string('title', 150);
             $table->text('description')->nullable();
             $table->dateTime('start_date');
             $table->dateTime('end_date');
