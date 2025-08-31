@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Election;
 use App\Models\User;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Storage;
@@ -34,6 +35,7 @@ class ElectionController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         DB::transaction(function () use ($request) {
 
             $election = \App\Models\Election::create([
@@ -57,6 +59,18 @@ class ElectionController extends Controller
                     'vision' => $c['vision'],
                     'mission' => $c['mission'],
                     'photo' => $photoPath,
+                    'added_by' => Auth::user()->id,
+                ]);
+            }
+            
+            foreach ($request->voters as $index => $c) {
+
+                \App\Models\User::create([
+                    'election_id' => $election->id,
+                    'nomor_identitas' => $c['nomor_identitas'],
+                    'fullname' => $c['fullname'],
+                    'phone' => $c['phone'],
+                    'password' => Hash::make($c['password']),
                     'added_by' => Auth::user()->id,
                 ]);
             }

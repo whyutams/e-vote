@@ -283,13 +283,30 @@
                                         <div id="pemilih-container" class="space-y-6">
                                             <!-- Template Pemilih -->
                                             <div class="pemilih-item bg-white border border-gray-200 rounded-lg p-4">
-                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+
+                                                    <!-- Nomor Induk -->
+                                                    <div>
+                                                        <label class="block mb-2 text-sm font-medium text-gray-900">Nomor Induk</label>
+                                                        <input type="number" name="voters[0][nomor_identitas]" 
+                                                            class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                            focus:ring-blue-500 focus:border-blue-500" required>
+                                                    </div>
+
                                                     <!-- Nama -->
                                                     <div>
                                                         <label class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
-                                                        <input type="text" name="voters[0][name]" 
+                                                        <input type="text" name="voters[0][fullname]" 
                                                             class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
                                                             focus:ring-blue-500 focus:border-blue-500" required>
+                                                    </div>
+
+                                                    <!-- Password -->
+                                                    <div>
+                                                        <label class="block mb-2 text-sm font-medium text-gray-900">password</label>
+                                                        <input type="password" name="voters[0][password]" 
+                                                            class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                            focus:ring-blue-500 focus:border-blue-500"  required>
                                                     </div>
 
                                                     <!-- Nomor HP -->
@@ -301,13 +318,7 @@
                                                             pattern="[0-9]{10,13}" required>
                                                     </div>
 
-                                                    <!-- Nomor Induk -->
-                                                    <div>
-                                                        <label class="block mb-2 text-sm font-medium text-gray-900">Nomor Induk</label>
-                                                        <input type="number" name="voters[0][id_number]" 
-                                                            class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                            focus:ring-blue-500 focus:border-blue-500" required>
-                                                    </div>
+
                                                 </div>
 
                                                 <button type="button" 
