@@ -14,6 +14,8 @@ class Candidate extends Model
         'vision',
         'mission',
         'photo',
+        'added_by',
+        'updated_by',
     ];
 
     public function election()

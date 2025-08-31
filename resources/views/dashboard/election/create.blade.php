@@ -17,15 +17,15 @@
             <div
                 class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6">
 
-                <form action="{{ route('dashboard.elections.create') }}" method="POST">
+                <form action="{{ route('dashboard.elections.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Stepper -->
                     <div data-hs-stepper="">
                         <!-- Stepper Nav -->
                         <ul class="relative flex flex-row gap-x-2">
                             <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
-                            "index": 1
-                            }'>
+                                                        "index": 1
+                                                        }'>
                                 <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                                     <span
                                         class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
@@ -47,8 +47,8 @@
                             </li>
 
                             <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
-                            "index": 2
-                            }'>
+                                                        "index": 2
+                                                        }'>
                                 <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                                     <span
                                         class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
@@ -70,8 +70,8 @@
                             </li>
 
                             <li class="flex items-center gap-x-2 shrink basis-0 flex-1 group" data-hs-stepper-nav-item='{
-                                "index": 3
-                            }'>
+                                                            "index": 3
+                                                        }'>
                                 <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                                     <span
                                         class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
@@ -99,8 +99,8 @@
                         <div class="mt-5 sm:mt-8">
                             <!-- First Content -->
                             <div data-hs-stepper-content-item='{
-                            "index": 1
-                            }'>
+                                                        "index": 1
+                                                        }'>
                                 <div
                                     class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6">
                                     <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Data Pemilihan
@@ -109,18 +109,20 @@
                                         <label for="title"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul
                                             Pemilihan</label>
-                                        <input type="text" id="title"
+                                        <input type="text" id="title" name="title" value="{{ old('title') }}"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-                                                focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                                                dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
+                                                                            focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                                                                            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
                                     </div>
 
                                     <div class="mb-5">
                                         <label for="description"
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
-                                        <textarea id="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
-                                                border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
-                                                dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                                        <textarea id="description" rows="4"
+                                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
+                                                                            border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
+                                                                            dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                            name="description">{{ old('description') }}</textarea>
                                     </div>
 
                                     <div class="grid grid-cols-1 lg:grid-cols-4 gap-10">
@@ -147,9 +149,7 @@
                             <!-- End First Content -->
 
                             <!-- First Content -->
-                            <div data-hs-stepper-content-item='{
-                            "index": 2
-                            }' style="display: none;">
+                            <div data-hs-stepper-content-item='{"index":2}' style="display: none;">
                                 <div id="kandidat-container" class="space-y-6">
                                     <!-- Kandidat Template -->
                                     <div
@@ -160,131 +160,122 @@
                                             <div class="flex-1">
                                                 <div class="mb-5">
                                                     <label
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                                        Ketua</label>
-                                                    <input type="text" name="kandidat[0][ketua]"
-                                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
-                                                        focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                                                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
-                                                </div>
-
-                                                <div class="mb-5">
-                                                    <label
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                                        Wakil</label>
-                                                    <input type="text" name="kandidat[0][wakil]" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg 
-                                                        bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 
-                                                        dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                                                    <input type="text" name="candidates[0][name]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
+                  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
                                                 </div>
 
                                                 <div class="mb-5">
                                                     <label
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi</label>
-                                                    <textarea name="kandidat[0][visi]" rows="2" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
-                                                        border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
-                                                        dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
+                                                    <textarea name="candidates[0][vision]"
+                                                        class="wysiwyg bg-gray-50 border w-full border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"></textarea>
                                                 </div>
 
-
                                                 <div class="mb-5">
-                                                    <label for="misi"
+                                                    <label
                                                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi</label>
-                                                    <!-- Card Editor -->
-                                                    <div
-                                                        class="bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-                                                        <!-- Toolbar -->
-                                                        @include('components.wysiwyg-toolbar')
-                                                        <!-- Editor Area -->
-                                                        <div class="px-4 text-sm text-gray-800 dark:bg-gray-800 rounded-b-lg focus:outline-none"
-                                                            id="wysiwyg-typography-example">
-                                                        </div>
-                                                    </div>
+                                                    <textarea name="candidates[0][mission]"
+                                                        class="wysiwyg bg-gray-50 border w-full border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"></textarea>
                                                 </div>
                                             </div>
 
-                                            <div class=" flex-1">
-                                                <!-- Kolom Upload Gambar -->
+                                            <div class="flex-1">
                                                 <div
                                                     class="w-full self-start bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6 flex flex-col items-center justify-center">
                                                     <!-- Preview -->
                                                     <div
                                                         class="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg mb-4">
-                                                        <img id="preview" src="https://placehold.co/200"
-                                                            class="rounded-lg object-cover w-full h-full">
+                                                        <img id="preview-0" src="https://placehold.co/200"
+                                                            class="rounded-lg object-cover w-full h-full preview">
                                                     </div>
                                                     <h3 class="text-md font-semibold mb-4 text-gray-700 dark:text-gray-200">
                                                         Upload Gambar</h3>
-                                                    <input type="file" name="kandidat[0][photo]" id="upload"
-                                                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
+                                                    <input type="file" name="candidates[0][photo]" id="upload-0"
+                                                        class="file-input block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
                                                 </div>
                                             </div>
                                         </div>
 
-
                                         <button type="button"
-                                            class="hapus-kandidat mt-2 text-red-600 hover:text-red-800 text-sm">
-                                            Hapus Kandidat
-                                        </button>
+                                            class="hapus-kandidat mt-2 text-red-600 hover:text-red-800 text-sm">Hapus
+                                            Kandidat</button>
                                     </div>
                                 </div>
-
-                                <!-- Tombol Tambah -->
+ 
                                 <div class="mt-4">
                                     <button type="button" id="tambah-kandidat"
                                         class="py-2 px-3 rounded-lg bg-green-600 text-white hover:bg-green-700">
                                         + Tambah Kandidat
                                     </button>
                                 </div>
+                            </div>
 
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function () {
-                                        let index = 1;
-                                        const container = document.getElementById("kandidat-container");
-                                        const btnTambah = document.getElementById("tambah-kandidat");
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    let index = 1;
+                                    const container = document.getElementById("kandidat-container");
+                                    const btnTambah = document.getElementById("tambah-kandidat");
 
-                                        btnTambah.addEventListener("click", function () {
-                                            let kandidatBaru = container.firstElementChild.cloneNode(true);
-
-                                            // update name input biar tidak bentrok
-                                            kandidatBaru.querySelectorAll("input, textarea").forEach(el => {
-                                                el.value = "";
-                                                el.name = el.name.replace(/\[\d+\]/, `[${index}]`);
-                                            });
-
-                                            container.appendChild(kandidatBaru);
-                                            index++;
-                                        });
-
-                                        container.addEventListener("click", function (e) {
-                                            if (e.target.classList.contains("hapus-kandidat")) {
-                                                if (container.children.length > 1) {
-                                                    e.target.closest(".kandidat-item").remove();
-                                                } else {
-                                                    alert("Minimal 1 kandidat harus ada!");
-                                                }
+                                    // fungsi binding preview upload
+                                    function bindPreview(input, previewId) {
+                                        input.addEventListener("change", function (event) {
+                                            const file = event.target.files[0];
+                                            if (file) {
+                                                const reader = new FileReader();
+                                                reader.onload = function (e) {
+                                                    document.getElementById(previewId).src = e.target.result;
+                                                };
+                                                reader.readAsDataURL(file);
                                             }
                                         });
+                                    }
+ 
+                                    bindPreview(document.getElementById("upload-0"), "preview-0");
+
+                                    btnTambah.addEventListener("click", function () {
+                                        let kandidatBaru = container.firstElementChild.cloneNode(true);
+ 
+                                        kandidatBaru.querySelectorAll("input[type=text], textarea").forEach(el => {
+                                            el.value = "";
+                                            el.name = el.name.replace(/\[\d+\]/, `[${index}]`);
+                                        });
+ 
+                                        let fileInput = kandidatBaru.querySelector("input[type=file]");
+                                        fileInput.value = "";
+                                        fileInput.name = fileInput.name.replace(/\[\d+\]/, `[${index}]`);
+                                        fileInput.id = `upload-${index}`;
+ 
+                                        let previewImg = kandidatBaru.querySelector("img.preview");
+                                        previewImg.id = `preview-${index}`;
+                                        previewImg.src = "https://placehold.co/200";
+ 
+                                        bindPreview(fileInput, previewImg.id);
+
+                                        container.appendChild(kandidatBaru);
+                                        index++;
                                     });
-                                    document.getElementById("upload").addEventListener("change", function (event) {
-                                        const file = event.target.files[0];
-                                        if (file) {
-                                            const reader = new FileReader();
-                                            reader.onload = function (e) {
-                                                document.getElementById("preview").src = e.target.result;
+ 
+                                    container.addEventListener("click", function (e) {
+                                        if (e.target.classList.contains("hapus-kandidat")) {
+                                            if (container.children.length > 1) {
+                                                e.target.closest(".kandidat-item").remove();
+                                            } else {
+                                                alert("Minimal 1 kandidat harus ada!");
                                             }
-                                            reader.readAsDataURL(file);
                                         }
                                     });
-                                </script>
+                                });
+                            </script>
 
-                            </div>
 
                             <!-- End First Content -->
 
                             <!-- Step 3 Content -->
                             <div data-hs-stepper-content-item='{
-                            "index": 3
-                            }' style="display: none;">
+                                                        "index": 3
+                                                        }' style="display: none;">
                                 <div
                                     class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6">
                                     <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Data Pemilih
@@ -296,8 +287,9 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
                                             Lengkap</label>
                                         <input type="text" id="nama_pemilih" name="nama_pemilih" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                                                dark:placeholder-gray-400 dark:text-white" required>
+                                                                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
+                                                                            dark:placeholder-gray-400 dark:text-white"
+                                            required>
                                     </div>
 
                                     <!-- Nomor HP -->
@@ -306,8 +298,9 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor
                                             HP</label>
                                         <input type="number" id="nomor_hp" name="nomor_hp" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                                                dark:placeholder-gray-400 dark:text-white" pattern="[0-9]{10,13}" required>
+                                                                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
+                                                                            dark:placeholder-gray-400 dark:text-white"
+                                            pattern="[0-9]{10,13}" required>
                                     </div>
 
                                     <!-- Nomor Induk -->
@@ -316,8 +309,9 @@
                                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor
                                             Induk</label>
                                         <input type="number" id="nomor_induk" name="nomor_induk" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                                                dark:placeholder-gray-400 dark:text-white" required>
+                                                                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
+                                                                            dark:placeholder-gray-400 dark:text-white"
+                                            required>
                                     </div>
                                 </div>
                             </div>

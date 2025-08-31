@@ -7,6 +7,7 @@ use App\Models\User;
 use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Storage;
 
 class ElectionController extends Controller
 {
@@ -24,7 +25,7 @@ class ElectionController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    { 
+    {
         return view('dashboard.election.create');
     }
 
@@ -40,37 +41,30 @@ class ElectionController extends Controller
                 'description' => $request->description,
                 'start_date' => $request->start_date,
                 'end_date' => $request->end_date,
-                'added_by' => auth()->id(),
+                'added_by' => Auth::user()->id,
             ]);
 
-            foreach ($request->candidates as $c) {
+            foreach ($request->candidates as $index => $c) {
                 $photoPath = null;
-                if (isset($c['photo'])) {
-                    $photoPath = $c['photo']->store('candidates', 'public');
+
+                if ($request->hasFile("candidates.$index.photo")) {
+                    $photoPath = $request->file("candidates.$index.photo")->store('candidates', 'public');
                 }
 
                 \App\Models\Candidate::create([
                     'election_id' => $election->id,
                     'name' => $c['name'],
-                    'vission' => $c['vission'],
+                    'vision' => $c['vision'],
                     'mission' => $c['mission'],
                     'photo' => $photoPath,
-                    'added_by' => auth()->id(),
+                    'added_by' => Auth::user()->id,
                 ]);
             }
 
-            foreach ($request->users as $u) {
-                \App\Models\User::create([
-                    'fullname' => $u['fullname'],
-                    'nomor_identitas' => $u['nomor_identitas'],
-                    'phone' => $u['phone'],
-                    'password' => bcrypt('default123'), // generate password
-                    'role' => User::ROLE_USER,
-                ]);
-            }
+
         });
 
-        return redirect()->route('dashboard.election.index')
+        return redirect()->route('dashboard.elections.index')
             ->with('success', 'Data pemilihan berhasil ditambahkan!');
     }
 
