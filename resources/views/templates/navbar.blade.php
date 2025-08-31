@@ -28,7 +28,7 @@
                 id="dropdownNavbarLink" 
                 data-dropdown-toggle="dropdownNavbar" 
                 class="flex items-center justify-between font-medium w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 hover:bg-transparent text-lg border-0 hover:text-blue-700 p-0">
-                {{ Auth::user()->username }}
+                {{ Auth::user()->username ??  Auth::user()->fullname }}
                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
                   <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
                 </svg>

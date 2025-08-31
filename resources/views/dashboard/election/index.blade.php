@@ -102,7 +102,7 @@
                             {{ \Carbon\Carbon::parse($election->end_date)->format('Y-m-d H:i') }} 
                             </td>
                             <td class="px-6 py-4">
-                                <a href="{{ url('/dashboard/election/show') }}"
+                                <a href="{{ url('/dashboard/elections/'. $election->id .'/show') }}"
                                     class="font-medium text-blue-500 hover:underline">
                                     <i class="ri-eye-fill hidden md:inline"></i>
                                     Detail

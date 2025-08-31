@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
 use App\Models\Election;
 use App\Models\User;
 use DB;
@@ -62,7 +63,7 @@ class ElectionController extends Controller
                     'added_by' => Auth::user()->id,
                 ]);
             }
-            
+
             foreach ($request->voters as $index => $c) {
 
                 \App\Models\User::create([
@@ -88,8 +89,29 @@ class ElectionController extends Controller
      */
     public function show(Election $election)
     {
-        return "view dashboard election show";
+        
+        $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
+            ->where('election_id', $election->id)
+            ->get();
+
+        return view('dashboard.election.show', compact('election', 'candidates'));
     }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show_pemilih(Election $election)
+    {
+        $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
+            ->where('election_id', $election->id)
+            ->get();
+
+        $users = User::where('election_id', $election->id)->get(); 
+
+        return view('dashboard.election.show_voter', compact('election', 'users')); 
+    }
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -100,7 +122,7 @@ class ElectionController extends Controller
             return abort('404', 'NOT FOUND');
         }
 
-        return "view dashboard election edit";
+        return view('dashboard.election.edit.edit_election', compact('election'));
     }
 
     /**
@@ -124,7 +146,7 @@ class ElectionController extends Controller
 
         $election->update($validated);
 
-        return redirect()->route('dashboard.elections.index')
+        return redirect()->route('dashboard.elections.index', ['election'=>$election->id])
             ->with('success', 'Election berhasil diperbarui.');
     }
 
