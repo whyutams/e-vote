@@ -24,6 +24,8 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
+        $credentials['role'] = User::ROLE_USER;
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/voter')->with('success', 'Login berhasil, Selamat datang ' . Auth::user()->callname . '.');
@@ -46,7 +48,10 @@ class UserController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        $adminCredentials = array_merge($credentials, ['role' => User::ROLE_ADMIN]);
+        $superAdminCredentials = array_merge($credentials, ['role' => User::ROLE_SUPERADMIN]);
+
+        if (Auth::attempt($adminCredentials) || Auth::attempt($superAdminCredentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard')->with('success', 'Login berhasil, Selamat datang ' . Auth::user()->callname ?? Auth::user()->fullname . '.');
         }
