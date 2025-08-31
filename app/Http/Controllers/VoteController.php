@@ -2,31 +2,51 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Candidate;
+use App\Models\Election;
 use App\Models\Vote;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class VoteController extends Controller
 {
-    public function store($election_id, $candidate_id)
+    public function store(Request $request, Election $election, Candidate $candidate)
     {
-        $userId = auth()->id();
+        $userId = $request->user()->id;
 
-        // Cek apakah user sudah vote sebelumnya
-        $alreadyVoted = Vote::where('election_id', $election_id)
+        // Pastikan kandidat memang milik election ini
+        if ($candidate->election_id !== $election->id) {
+            return back()->with('error', 'Kandidat tidak valid untuk pemilihan ini.');
+        }
+
+        // Pastikan waktu voting masih dibuka
+        if (! now()->between($election->start_date, $election->end_date)) {
+            return back()->with('error', 'Waktu pemilihan belum mulai atau sudah berakhir.');
+        }
+
+        // Cegah double vote (juga diamankan oleh unique index)
+        $already = Vote::where('election_id', $election->id)
             ->where('user_id', $userId)
             ->exists();
 
-        if ($alreadyVoted) {
-            return redirect()->back()->with('error', 'Anda sudah memberikan suara di pemilihan ini.');
+        if ($already) {
+            return back()->with('error', 'Anda sudah memberikan suara di pemilihan ini.');
         }
 
-        // Simpan vote
-        Vote::create([
-            'election_id'  => $election_id,
-            'candidate_id' => $candidate_id,
-            'user_id'      => $userId,
-        ]);
+        try {
+            DB::transaction(function () use ($election, $candidate, $userId) {
+                Vote::create([
+                    'election_id'  => $election->id,
+                    'candidate_id' => $candidate->id,
+                    'user_id'      => $userId,
+                ]);
+            });
+        } catch (\Throwable $e) {
+            // Jika ada race condition, unique constraint akan menolak
+            return back()->with('error', 'Gagal menyimpan suara. Silakan coba lagi.');
+        }
 
-        return redirect()->back()->with('success', 'Suara Anda berhasil disimpan!');
+        return back()->with('success', 'Suara Anda berhasil disimpan!');
     }
 }
+    

@@ -109,9 +109,9 @@ Route::middleware('auth')->group(function () {
         });
     });
 
-    Route::prefix('voter')->middleware('role:' . User::ROLE_USER)->group(function () {
+    Route::prefix('voter')->name('voter.')->middleware('role:' . User::ROLE_USER)->group(function () {
         Route::get('/', [LandingController::class, 'index'])->name('voter.index');
-        Route::get('/{election}', [LandingController::class, 'show'])->name('voter.voter');
+        Route::get('/{election}', [LandingController::class, 'show'])->name('voter');
 
         // Vote – memakai binding: {election} + {candidate}
         Route::post('/vote/{election}/{candidate}', [VoteController::class, 'store'])

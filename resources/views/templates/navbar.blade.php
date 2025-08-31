@@ -43,6 +43,8 @@
                 <div class="py-1">
                   <button type="submit" class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100 w-full">Logout</button>
                 </div>
+
+                </form>
             </div>
           </div>
         @endif

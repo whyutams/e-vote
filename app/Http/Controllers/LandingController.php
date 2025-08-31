@@ -5,15 +5,13 @@ namespace App\Http\Controllers;
 use App\Models\Candidate;
 use App\Models\Election;
 use App\Models\Vote;
-use Illuminate\Http\Request;
 
 class LandingController extends Controller
 {
     public function index()
     {
         $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
-            ->oldest()
-            ->get()
+            ->oldest()->get()
             ->groupBy('election_id');
 
         return view('voter.index', compact('candidates'));
@@ -25,11 +23,19 @@ class LandingController extends Controller
             ->where('election_id', $election->id)
             ->get();
 
-        // cek apakah user sudah pernah vote di election ini
-        $hasVoted = Vote::where('election_id', $election->id)
-            ->where('user_id', auth()->id())
-            ->exists();
+        $userId = auth()->id();
 
-        return view('voter.voter', compact('election', 'candidates', 'hasVoted'));
+        $myVote = Vote::where('election_id', $election->id)
+            ->where('user_id', $userId)
+            ->first();
+
+        $hasVoted = (bool) $myVote;
+        $myCandidateId = $myVote?->candidate_id;
+
+        $isVotingOpen = now()->between($election->start_date, $election->end_date);
+
+        return view('voter.voter', compact(
+            'election', 'candidates', 'hasVoted', 'myCandidateId', 'isVotingOpen'
+        ));
     }
 }

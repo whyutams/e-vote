@@ -19,6 +19,11 @@
             @php
                 $election = $candidateGroup->first()->election;
             @endphp
+
+            <script>
+                let test = "{{$election->id}}";
+                alert(test)
+            </script>
             <div
                 class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden min-h-[500px]">
                 <div class="p-6">
