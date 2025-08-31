@@ -29,14 +29,14 @@
                         <div class="text-center">
                             <h6 class="mb-1 font-bold text-lg text-center text-gray-700">Waktu Pemilihan</h6>
                             <p class="mb-1 text-center font-normal text-gray-700">2025-05-12</p>
-                            <p class="mb-4 text-center font-normal text-gray-700">08:00:00 - 10:00:00</p>
+                            <p class="mb-2 text-center font-normal text-gray-700">08:00 - 10:00</p>
                         </div>
 
                         <!-- Kolom kanan -->
                         <div class="text-center">
                             <h6 class="mb-2 font-bold text-lg text-center text-gray-700">Status Pemilihan</h6>
                             <span class="bg-green-100 text-green-800 mb-4 text-lg font-medium px-2.5 py-0.5 rounded-lg">aktif</span>
-                            <p class="mb-8"></p>
+                            <p class="mb-6"></p>
                         </div>
                     </div>
 
@@ -69,14 +69,14 @@
                         <div class="text-center">
                             <h6 class="mb-1 font-bold text-lg text-center text-gray-700">Waktu Pemilihan</h6>
                             <p class="mb-1 text-center font-normal text-gray-700">2025-05-12</p>
-                            <p class="mb-4 text-center font-normal text-gray-700">08:00:00 - 10:00:00</p>
+                            <p class="mb-2 text-center font-normal text-gray-700">08:00 - 10:00</p>
                         </div>
 
                         <!-- Kolom kanan -->
                         <div class="text-center">
                             <h6 class="mb-2 font-bold text-lg text-center text-gray-700">Status Pemilihan</h6>
                             <span class="bg-red-100 text-red-800  mb-4 text-lg font-medium px-2.5 py-0.5 rounded-lg">selesai</span>
-                            <p class="mb-8"></p>
+                            <p class="mb-6"></p>
                         </div>
                     </div>
 
@@ -109,14 +109,14 @@
                         <div class="text-center">
                             <h6 class="mb-1 font-bold text-lg text-center text-gray-700">Waktu Pemilihan</h6>
                             <p class="mb-1 text-center font-normal text-gray-700">2025-05-12</p>
-                            <p class="mb-4 text-center font-normal text-gray-700">08:00:00 - 10:00:00</p>
+                            <p class="mb-2 text-center font-normal text-gray-700">08:00 - 10:00</p>
                         </div>
 
                         <!-- Kolom kanan -->
                         <div class="text-center">
                             <h6 class="mb-2 font-bold text-lg text-center text-gray-700">Status Pemilihan</h6>
                             <span class="bg-blue-100 text-blue-800 mb-4 text-lg font-medium px-2.5 py-0.5 rounded-lg">Draft</span>
-                            <p class="mb-8"></p>
+                            <p class="mb-6"></p>
                         </div>
                     </div>
 
