@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ElectionController;
+use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
@@ -102,11 +103,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::prefix('voter')->middleware('role:' . User::ROLE_USER)->group(function () {
-        Route::get('/', function () {
-            return view('voter.index');
-        })->name('voter.index');
-        Route::get('/vote_candidate', function () {
-            return view('voter.voter');
-        })->name('voter.voter');
+        Route::get('/', [LandingController::class, 'index'])->name('voter.index');
+        Route::get('/{election}', [LandingController::class, 'show'])->name('voter.voter');
     });
 });

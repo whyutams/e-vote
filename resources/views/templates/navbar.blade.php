@@ -13,7 +13,7 @@
             </path>
           </svg>
         </button>
-        <a href="#" class="flex md:me-24 space-x-4">
+        <a href="/#" class="flex md:me-24 space-x-4">
           <div class="mt-1">
             <i class="ri-bar-chart-2-fill text-white bg-blue-500 p-2 rounded-md"></i>
           </div>
@@ -41,7 +41,7 @@
                   @csrf
                   
                 <div class="py-1">
-                  <button type="submit" class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100">Logout</button>
+                  <button type="submit" class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100 w-full">Logout</button>
                 </div>
             </div>
           </div>
