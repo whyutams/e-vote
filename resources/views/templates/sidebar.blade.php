@@ -33,7 +33,7 @@
                <button type="submit"
                   class="w-full text-left flex items-center p-2 rounded-lg group hover-scale text-gray-600 hover:bg-gray-100">
                   <i class="ri-logout-box-line text-xl"></i>
-                  <span class="ms-3">Logout</span>
+                   <span class="ms-3">Logout</span>
                </button>
             </form>
          </li>

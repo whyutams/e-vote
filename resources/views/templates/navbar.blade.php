@@ -10,7 +10,7 @@
          </button>
         <a href="#" class="flex md:me-24 space-x-4">
           <div class="mt-1">
-            <i class="ri-megaphone-line text-white bg-blue-500 p-2 rounded-md"></i>
+            <i class="ri-bar-chart-2-fill text-white bg-blue-500 p-2 rounded-md"></i>
           </div>
           <span class="text-center text-xl sm:text-2xl font-extrabold drop-shadow-lg">Vitely</span>
 
