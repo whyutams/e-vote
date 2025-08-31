@@ -27,7 +27,7 @@
             </div>
             <div class="flex-1">
                 <p class="text-sm text-gray-500">Total Pemilihan</p>
-                <h2 class="text-2xl font-bold text-gray-800">3</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{$elections->count()}}</h2>
             </div>
         </div>
 
@@ -37,7 +37,7 @@
             </div>
             <div class="flex-1">
                 <p class="text-sm text-gray-500">Total Pemilih</p>
-                <h2 class="text-2xl font-bold text-gray-800">1,250</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{$users->count()}}</h2>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
             </div>
             <div class="flex-1">
                 <p class="text-sm text-gray-500">Suara Masuk</p>
-                <h2 class="text-2xl font-bold text-gray-800">970</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{$voted->count()}}</h2>
             </div>
         </div>
 
@@ -57,9 +57,15 @@
             <div class="px-3 py-2 bg-yellow-100 rounded-full">
                 <i class="ri-pie-chart-2-line text-2xl text-yellow-600"></i>
             </div>
+            @php
+                $totalUsers = $users->count();
+                $totalVoted = $voted->count();
+                $participation = $totalUsers > 0 ? round(($totalVoted / $totalUsers) * 100, 1) : 0;
+            @endphp
+
             <div class="flex-1">
                 <p class="text-sm text-gray-500">Partisipasi</p>
-                <h2 class="text-2xl font-bold text-gray-800">77.6%</h2>
+                <h2 class="text-2xl font-bold text-gray-800">{{$participation}}%</h2>
             </div>
         </div>
     </div>

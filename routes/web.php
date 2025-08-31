@@ -3,6 +3,7 @@
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\LandingController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VoteController;
 use App\Models\User;
@@ -41,9 +42,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('dashboard')->middleware('role:' . User::ROLE_SUPERADMIN . "," . User::ROLE_ADMIN)->group(function () {
 
-        Route::get('/', function () {
-            return view('dashboard.dashboard');
-        })->name('dashboard.index');
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard.index');
 
         Route::prefix('elections')->group(function () {
             Route::get('/', [ElectionController::class, 'index'])->name('dashboard.elections.index');
