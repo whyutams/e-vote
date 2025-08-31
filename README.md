@@ -35,7 +35,8 @@ Vitely adalah aplikasi pemungutan suara elektronik yang aman, dibangun dengan La
 
 1. Clone repositori
 ```bash
-git clone https://github.com/yourusername/vitely.git
+git clone https://github.com/whyutams/e-vote.git
+cd e-vote
 ```
 
 2. Install dependensi
@@ -67,6 +68,10 @@ php artisan migrate
     - Buat pemilihan baru
     - Atur parameter dan jadwal
     - Validasi data pemilihan
+4. User
+    - Login menggunakan kode dan password yang di kirimkan melalui whatsapp
+    - Pilih elections terlebih dahulu
+    - Voting suara untuk kandidat dalam elections
 
 ### Admin/Operator
 1. Login ke dashboard
@@ -80,7 +85,7 @@ php artisan migrate
 Aplikasi ini menerapkan berbagai langkah keamanan termasuk:
 - Tidak ada fitur pendaftaran publik untuk mencegah manipulasi data
 - Penambahan pemilih dilakukan manual oleh admin/operator atau melalui import Excel
-- 
+- user Hanya bisa bisa memilih 1 kali dalam setiap elections
 
 ## 🤝 Kontribusi
 
