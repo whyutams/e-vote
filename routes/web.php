@@ -25,6 +25,14 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
+    Route::get('/', function(){
+        if(Auth::user()->role== User::ROLE_USER){
+            return redirect('/voter');
+        } else{
+            return redirect('/dashboard');
+
+        }
+    });
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
 
     Route::prefix('dashboard')->middleware('role:' . User::ROLE_SUPERADMIN . "," . User::ROLE_ADMIN)->group(function () {
