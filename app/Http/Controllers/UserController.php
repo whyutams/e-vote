@@ -162,6 +162,7 @@ class UserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'username' => $request->username,
+            'password'=>$request->password,
             'role' => User::ROLE_ADMIN,
         ]);
 
