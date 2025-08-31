@@ -1,67 +1,85 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Login Admin</title>
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<div
-  class="absolute top-10 left-10 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse">
-</div>
-<div
-  class="absolute bottom-20 right-16 w-56 h-56 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse">
-</div>
-<div class="absolute top-1/2 left-1/3 w-56 h-56 bg-pink-900 rounded-full mix-blend-multiply filter blur-2xl opacity-30">
-</div>
+<body>
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <section class="flex justify-center relative min-h-screen">
+    {{-- Background Image --}}
+    <img src="https://pagedone.io/asset/uploads/1702362010.png" alt="gradient background image" 
+         class="w-full h-full object-cover fixed">
 
-  <div
-    class="e-card relative w-[340px] sm:w-[380px] h-[460px] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(91,66,243,0.6)] bg-transparent">
+    <div class="mx-auto max-w-lg px-6 lg:px-8 absolute inset-0 flex items-center justify-center">
+      <div class="w-full">
+        {{-- Logo --}}
+        <img src="https://pagedone.io/asset/uploads/1702362108.png" 
+             alt="pagedone logo" 
+             class="mx-auto lg:mb-11 mb-8 object-cover">
 
-    <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 -top-[70%] wave-gradient animate-wave"></div>
-    <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 top-[210px] wave-gradient animate-wave-2"></div>
-    <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 top-[210px] wave-gradient animate-wave-3"></div>
+        <div class="rounded-2xl bg-white shadow-xl">
+          {{-- Form --}}
+          <form action="{{ route('dashboard.login.submit') }}" method="POST" class="lg:p-11 p-7 mx-auto space-y-6">
+            @csrf
 
-    <div class="absolute inset-0 flex flex-col justify-center px-8">
-      <h1 class="text-center text-3xl font-extrabold text-white drop-shadow-lg mb-8">Vitely</h1>
+            {{-- Error Messages --}}
+            @if ($errors->any())
+              <div class="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between mb-6" id="alert-error">
+                <ul class="list-disc list-inside text-sm">
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+                <span class="my-auto">
+                  <i class="ri-close-line text-lg cursor-pointer" data-dismiss-target="#alert-error"></i>
+                </span>
+              </div>
+            @endif
 
-      @if ($errors->any())
-        <div class="mb p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between" id="alert-error">
-          <ul class="list-disc list-inside">
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-          <span class="my-auto"><i class="ri-close-line text-lg cursor-pointer"
-          data-dismiss-target="#alert-error"></i></span>
+            {{-- Heading --}}
+            <div class="mb-6">
+              <h1 class="text-gray-900 text-center font-manrope text-3xl font-bold leading-10 mb-2">
+                Welcome Back
+              </h1>
+              <p class="text-gray-500 text-center text-base font-medium leading-6">
+                Silakan login sebagai admin
+              </p>
+            </div>
+
+            {{-- Username --}}
+            <input type="text" name="username" required value="{{ old('username') }}"
+              placeholder="Username"
+              class="w-full h-12 text-gray-900 placeholder:text-gray-400 text-lg font-normal leading-7 rounded-full border-gray-300 border shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 px-4">
+
+            {{-- Password --}}
+            <input type="password" name="password" required placeholder="Password"
+              class="w-full h-12 text-gray-900 placeholder:text-gray-400 text-lg font-normal leading-7 rounded-full border-gray-300 border shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 px-4">
+
+            {{-- Forgot Password (opsional, bisa diarahkan ke route forgot password nanti) --}}
+            <a href="javascript:;" class="flex justify-end">
+              <span class="text-indigo-600 text-right text-sm font-medium">Forgot Password?</span>
+            </a>
+
+            {{-- Login Button --}}
+            <button type="submit"
+              class="w-full h-12 text-white text-center text-base font-semibold leading-6 rounded-full hover:bg-indigo-800 transition-all duration-700 bg-indigo-600 shadow-sm">
+              Login
+            </button>
+
+            {{-- Link ke login pemilih --}}
+            <a href="{{ url('/login') }}" class="flex justify-center text-gray-900 text-base font-medium leading-6">
+              Login sebagai Pemilih? 
+              <span class="text-indigo-600 font-semibold pl-2">Klik di sini</span>
+            </a>
+          </form>
         </div>
-      @endif
-
-      <form class="mt-6 space-y-4" action="{{ route('dashboard.login.submit') }}" method="POST">
-        @csrf
-
-        <input type="text" name="username" placeholder="Username" required value="{{ old('username') }}"
-          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none">
-
-        <input type="password" name="password" placeholder="Password" required
-          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none">
-
-        <button type="submit"
-          class="w-full py-3 rounded-2xl font-bold text-white bg-gradient-to-r from-blue-700 to-indigo-600 shadow-lg transform transition duration-200 hover:scale-105 hover:from-indigo-600 hover:to-blue-700 active:scale-95">
-          Login
-        </button>
-      </form>
-      <a href="{{ url('/login') }}" 
-          class="hapus-kandidat mt-7 text-white hover:text-black text-xl">
-          Login Pemilih
-      </a>
+      </div>
     </div>
-  </div>
+  </section>
 
 </body>
-
 </html>

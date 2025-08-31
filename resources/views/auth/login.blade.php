@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login</title>
+  <title>Login Pemilih</title>
   @vite(['resources/css/app.css', 'resources/js/app.js'])
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 </head>
-<div
-  class="absolute top-10 left-10 w-80 h-80 bg-blue-500 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-pulse">
-</div>
-<div
-  class="absolute bottom-20 right-16 w-56 h-56 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse">
-</div>
-<div class="absolute top-1/2 left-1/3 w-56 h-56 bg-pink-900 rounded-full mix-blend-multiply filter blur-2xl opacity-30">
-</div>
+<body>
 
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  <section class="flex justify-center relative min-h-screen">
+    {{-- Background --}}
+    <img src="https://pagedone.io/asset/uploads/1702362010.png" alt="background" 
+         class="w-full h-full object-cover fixed">
 
-  <div
-    class="e-card relative w-[340px] sm:w-[380px] h-[460px] rounded-2xl overflow-hidden shadow-[0_0_30px_rgba(91,66,243,0.6)] bg-transparent">
+    <div class="mx-auto max-w-lg px-6 lg:px-8 absolute inset-0 flex items-center justify-center">
+      <div class="w-full">
+        {{-- Logo / Judul --}}
+        <h1 class="text-center text-2xl font-extrabold text-blue-500 drop-shadow-lg mb-10"> <i class="ri-bar-chart-2-fill text-white bg-blue-500 p-2 rounded-md"></i> Vitely</h1>
 
-    <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 -top-[70%] wave-gradient animate-wave"></div>
-    <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 top-[210px] wave-gradient animate-wave-2"></div>
-    <div class="absolute w-[540px] h-[700px] opacity-60 -left-1/2 top-[210px] wave-gradient animate-wave-3"></div>
+        <div class="rounded-2xl bg-white shadow-xl">
+          {{-- Form --}}
+          <form action="{{ route('login.submit') }}" method="POST" class="lg:p-11 p-7 mx-auto space-y-6">
+            @csrf
 
-    <div class="absolute inset-0 flex flex-col justify-center px-8">
-      <h1 class="text-center text-3xl font-extrabold text-white drop-shadow-lg mb-8">Vitely</h1>
+            {{-- Error Messages --}}
+            @if ($errors->any())
+              <div class="p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between mb-6" id="alert-error">
+                <ul class="list-disc list-inside text-sm">
+                  @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                  @endforeach
+                </ul>
+                <span class="my-auto">
+                  <i class="ri-close-line text-lg cursor-pointer" data-dismiss-target="#alert-error"></i>
+                </span>
+              </div>
+            @endif
 
-      @if ($errors->any())
-        <div class="mb p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between"
-          id="alert-error">
-          <ul class="list-disc list-inside">
-            @foreach ($errors->all() as $error)
-              <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-          <span class="my-auto"><i class="ri-close-line text-lg cursor-pointer"
-              data-dismiss-target="#alert-error"></i></span>
+            {{-- Heading --}}
+            <div class="mb-6">
+              <h2 class="text-gray-900 text-center font-manrope text-2xl font-bold leading-10 mb-2">
+                Login Pemilih
+              </h2>
+              <p class="text-gray-500 text-center text-base font-medium leading-6">
+                Silakan masukkan nomor identitas & password
+              </p>
+            </div>
+
+            {{-- Nomor Identitas --}}
+            <input type="number" name="nomor_identitas" placeholder="Nomor Identitas" required
+              value="{{ old('nomor_identitas') }}"
+              class="w-full h-12 text-gray-900 placeholder:text-gray-400 text-lg font-normal rounded-full border-gray-300 border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 px-4">
+
+            {{-- Password --}}
+            <input type="password" name="password" placeholder="Password" required
+              class="w-full h-12 text-gray-900 placeholder:text-gray-400 text-lg font-normal rounded-full border-gray-300 border shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 px-4">
+
+            {{-- Tombol Login --}}
+            <button type="submit"
+              class="w-full h-12 text-white text-center text-base font-semibold rounded-full hover:bg-indigo-800 transition-all duration-700 bg-indigo-600 shadow-sm">
+              Login
+            </button>
+
+            {{-- Link ke login admin --}}
+            <a href="{{ url('/dashboard/login') }}" class="flex justify-center text-gray-900 text-base font-medium leading-6">
+              Login sebagai Admin? 
+              <span class="text-indigo-600 font-semibold pl-2">Klik di sini</span>
+            </a>
+          </form>
         </div>
-      @endif
-
-      <form class="mt-6 space-y-4" action="{{ route('login.submit') }}" method="POST">
-        @csrf
-
-        <input type="number" name="nomor_identitas" placeholder="Nomor Identitas" required
-          value="{{ old('nomor_identitas') }}"
-          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none">
-
-        <input type="password" name="password" placeholder="Password" required
-          class="w-full rounded-2xl px-4 py-3 border-2 border-gray-200 focus:border-blue-500 bg-white shadow-md placeholder-gray-400 focus:outline-none">
-
-        <button type="submit"
-          class="w-full py-3 rounded-2xl font-bold text-white bg-gradient-to-r from-blue-700 to-indigo-600 shadow-lg transform transition duration-200 hover:scale-105 hover:from-indigo-600 hover:to-blue-700 active:scale-95">
-          Login
-        </button>
-
-      </form>
-      <a href="{{ url('/dashboard/login') }}" class="hapus-kandidat mt-7 text-white hover:text-black text-xl">
-        Login Admin
-      </a>
+      </div>
     </div>
-  </div>
+  </section>
 
 </body>
-
 </html>
