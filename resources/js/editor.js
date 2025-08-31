@@ -11,7 +11,7 @@ window.addEventListener('load', function() {
         extensions: [
             StarterKit
         ],
-        content: '<p></p>',
+        content: '<p></p> <br>',
         onUpdate({ editor }) {
             document.querySelector('#preview').innerHTML = editor.getHTML()
         },

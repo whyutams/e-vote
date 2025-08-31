@@ -155,14 +155,7 @@
                                                     border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
                                                     dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
                                         </div>
-        
-                                        <div class="mb-5">
-                                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi</label>
-                                            <textarea name="kandidat[0][misi]" rows="3" 
-                                                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
-                                                    border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
-                                                    dark:bg-gray-700 dark:border-gray-600 dark:text-white"></textarea>
-                                        </div>
+    
         
                                         <div class="mb-5">
                                             <label for="misi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi</label>
