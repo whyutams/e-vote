@@ -82,7 +82,7 @@ Route::middleware('auth')->group(function () {
 
         });
 
-        Route::prefix('admins')->group(function () {
+        Route::prefix('admins')->middleware('role:'. User::ROLE_SUPERADMIN)->group(function () {
             Route::get('/', [UserController::class, 'd'])->name('dashboard.admins.index');
             Route::get('/create', [UserController::class, 'd_create_admin'])->name('dashboard.admins.create');
             Route::post('/create', [UserController::class, 'd_store_admin'])->name('dashboard.admins.store');

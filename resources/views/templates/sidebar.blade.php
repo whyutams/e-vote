@@ -20,11 +20,14 @@
             </a>
          </li>
          <li>
-            <a href="{{route('dashboard.admins.index') }}" class="flex items-center p-2 rounded-lg group hover-scale
-            {{ Request::is('dashboard/admins') ? 'bg-blue-500 text-gray-100' : 'text-gray-600 hover:bg-gray-100' }}">
-               <i class="ri-group-line text-xl"></i>
-               <span class="ms-3">Admin</span>
-            </a>
+            @if(auth()->user()->role === 'superadmin')
+               <a href="{{ route('dashboard.admins.index') }}" 
+                  class="flex items-center p-2 rounded-lg group hover-scale
+                  {{ Request::is('dashboard/admins') ? 'bg-blue-500 text-gray-100' : 'text-gray-600 hover:bg-gray-100' }}">
+                  <i class="ri-group-line text-xl"></i>
+                  <span class="ms-3">Admin</span>
+               </a>
+            @endif
          </li>
          <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-300">
          <li>
