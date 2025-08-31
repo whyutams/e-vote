@@ -15,7 +15,14 @@
           <span class="text-center text-xl sm:text-2xl font-extrabold drop-shadow-lg">Vitely</span>
         </a>
       </div>
-        <button type="button" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Logout</button>
+      @auth
+      @if (Auth::user()->role==\App\models\User::ROLE_USER)
+      <form action="{{ route('logout') }}" method="POST">
+       @csrf
+         <button type="submit" class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Logout</button>
+      </form>
+      @endif
+       @endauth
     </div>
   </div>
 </nav>
