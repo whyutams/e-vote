@@ -58,7 +58,10 @@ Route::middleware('auth')->group(function () {
             Route::get('/{election}/edit', [ElectionController::class, 'edit'])->name('dashboard.elections.edit');
             Route::post('/{election}/edit', [ElectionController::class, 'update'])->name('dashboard.elections.update');
 
-            Route::get('/{election}/show', [ElectionController::class, 'show'])->name('dashboard.elections.show');
+            Route::get('/{election}/show', [ElectionController::class, 'show'])->name('dashboard.elections.show');  
+            Route::patch('/{election}/start', [ElectionController::class, 'start'])->name('elections.elections.start');
+            Route::patch('/{election}/close', [ElectionController::class, 'close'])->name('elections.elections.close');
+
             Route::get('/{election}/voter', [ElectionController::class, 'show_pemilih'])->name('dashboard.election.show_voter');
             
             Route::get('/{candidate}/create', [CandidateController::class, 'create'])->name('dashboard.candidates.create');
