@@ -64,10 +64,10 @@ Route::middleware('auth')->group(function () {
 
             Route::get('/{election}/voter', [ElectionController::class, 'show_pemilih'])->name('dashboard.election.show_voter');
             
-            Route::get('/{candidate}/create', [CandidateController::class, 'create'])->name('dashboard.candidates.create');
-            Route::post('/{candidate}/create', [CandidateController::class, 'store'])->name('dashboard.candidates.store');
-            Route::delete('/{candidate}/delete', [CandidateController::class, 'destroy'])->name('dashboard.candidates.delete');
-
+            Route::get('/{election}/show/{candidate}/create', [CandidateController::class, 'create'])->name('dashboard.candidates.create');
+            Route::post('/{election}/show/{candidate}/create', [CandidateController::class, 'store'])->name('dashboard.candidates.store');
+            Route::delete('/{election}/show/{candidate}/delete', [CandidateController::class, 'destroy'])->name('dashboard.candidates.delete');
+            
             // CREATE (di dalam show)
             Route::prefix('{id}/create')->group(function () {
                 Route::get('/candidate', function ($id) {
