@@ -14,7 +14,7 @@
 
             <!-- Kolom Form -->
             <div
-                class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6 md:p-8">
+                class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
                 @if ($errors->any())
                     <div class="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between"
                         id="alert-error">
@@ -31,58 +31,58 @@
                 <form action="{{ route('dashboard.admins.update', ['user' => $user->id]) }}" method="POST">
                     @csrf
                     <div class="mb-5">
-                        <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                        <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900 ">Nama
                             Lengkap <span class="me-2 text-red-600">*</span></label>
                         <input value="{{ old('fullname', $user->fullname) }}" type="text" id="fullname" name="fullname"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             required>
                     </div>
 
                     <div class="mb-5">
-                        <label for="callname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
+                        <label for="callname" class="block mb-2 text-sm font-medium text-gray-900 ">Nama
                             Panggilan <span class="me-2 text-red-600">*</span></label>
                         <input value="{{ old('callname', $user->callname) }}" type="text" id="callname" name="callname"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
                             required>
                     </div>
 
                     <div class="mb-5">
                         <label for="email"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                            class="block mb-2 text-sm font-medium text-gray-900 ">Email</label>
                         <input value="{{ old('email', $user->email ?? '') }}" type="text" id="email" name="email"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 ">
                     </div>
 
                     <div class="mb-5">
-                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">No.
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 ">No.
                             HP</label>
                         <input value="{{ old('phone', $user->phone ?? '') }}" type="text" id="phone" name="phone"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 ">
                     </div>
 
                     <div class="mb-5">
-                        <label for="username" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username
+                        <label for="username" class="block mb-2 text-sm font-medium text-gray-900 ">Username
                             <span class="me-2 text-red-600">*</span></label>
                         <input value="{{ old('username', $user->username) }}" type="text" id="username" name="username"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 "
                             readonly disabled>
                     </div>
 
                     <div class="mb-5">
-                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Password
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password
                             <span class="me-2 text-red-600"></span></label>
                         <input value="{{ old('password') }}" type="password" id="password" name="password"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 ">
                         <small>Kosongkan kalau tidak ada perubahan password</small>
                     </div>
 
                     <div class="mb-5">
                         <label for="password_confirmation"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Konfirmasi Password <span
+                            class="block mb-2 text-sm font-medium text-gray-900 ">Konfirmasi Password <span
                                 class="me-2 text-red-600"></span></label>
                         <input value="{{ old('password_confirmation') }}" type="password" name="password_confirmation"
                             id="password_confirmation"
-                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                            class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-sm focus:ring-blue-500 focus:border-blue-500 ">
                     </div>
 
                     <div class="mt-6 flex justify-start flex-wrap gap-2">
