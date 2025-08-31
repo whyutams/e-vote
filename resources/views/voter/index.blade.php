@@ -4,7 +4,7 @@
 
 @section('body')
     @if (session('success'))
-        <div class="" id="alert-success">
+        <div class="mb-6" id="alert-success">
             <div class="p-4 flex justify-between bg-green-100 border border-green-400 text-green-700 rounded-lg">
                 <span>{{ session('success') }}</span>
                 <span><i class="ri-close-line text-lg cursor-pointer" data-dismiss-target="#alert-success"></i></span>
