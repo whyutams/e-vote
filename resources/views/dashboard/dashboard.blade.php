@@ -12,7 +12,7 @@
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
 
     <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale">
-        <div class="p-3 bg-green-100 rounded-full">
+        <div class="px-3 py-2 bg-green-100 rounded-full">
             <i class="ri-team-line text-2xl text-green-600"></i>
         </div>
         <div>
@@ -22,7 +22,7 @@
     </div>
 
     <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale">
-        <div class="p-3 bg-blue-100 rounded-full">
+        <div class="px-3 py-2 bg-blue-100 rounded-full">
             <i class="ri-user-3-line text-2xl text-blue-600"></i>
         </div>
         <div>
@@ -32,7 +32,7 @@
     </div>
 
     <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale">
-        <div class="p-3 bg-purple-100 rounded-full">
+        <div class="px-3 py-2 bg-purple-100 rounded-full">
             <span class="material-symbols-outlined text-2xl text-purple-600">
                 how_to_vote
             </span>
@@ -44,7 +44,7 @@
     </div>
 
     <div class="bg-white rounded-2xl shadow p-6 flex items-center space-x-4 hover-scale">
-        <div class="p-3 bg-yellow-100 rounded-full">
+        <div class="px-3 py-2 bg-yellow-100 rounded-full">
             <i class="ri-pie-chart-2-line text-2xl text-yellow-600"></i>
         </div>
         <div>
