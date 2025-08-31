@@ -70,7 +70,7 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Pemilihan Osis
+                        Pemilihan Ketua OSIS
                     </th>
                     <td class="px-6 py-4">
                         Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
@@ -99,10 +99,10 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Pemilihan Pramuka
+                        Pemilihan Ketua Pramuka
                     </th>
                     <td class="px-6 py-4">
-                        Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
+                        Pemilihan ini bertujuan memilih Ketua Pramuka periode 2025/2026
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm">aktif</span>
@@ -128,10 +128,10 @@
                         </div>
                     </td>
                     <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                        Pemilihan PIK-R
+                        Pemilihan Ketua PIK-R
                     </th>
                     <td class="px-6 py-4">
-                        Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026
+                        Pemilihan ini bertujuan memilih Ketua PIK-R periode 2025/2026
                     </td>
                     <td class="px-6 py-4">
                         <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm">selesai</span>
