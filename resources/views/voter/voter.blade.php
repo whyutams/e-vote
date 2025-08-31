@@ -5,7 +5,11 @@
 @section('body')
 
 <div class="px-4 sm:px-6">
-    <h2 class="lg:text-3xl text-md font-bold text-gray-800 mb-6">Pemilihan Ketua & Wakil Ketua OSIS</h2>
+    
+    <div class="mt-3 mb-6">
+        <h2 class="text-2xl font-bold text-gray-800">Pemilihan Ketua OSIS</h2>
+        <p class="text-sm text-gray-500">Pemilihan ini bertujuan memilih Ketua OSIS periode 2025/2026</p>
+    </div>
 
     <!-- Time Card -->
     <div class="mb-8">
@@ -61,7 +65,7 @@
                         Visi Misi
                     </button>
                     <button  
-                        class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
                     </button>
@@ -93,7 +97,7 @@
                         Visi Misi
                     </button>
                     <button  
-                        class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
                     </button>
@@ -125,7 +129,7 @@
                         Visi Misi
                     </button>
                     <button  
-                        class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
                     </button>
@@ -156,7 +160,7 @@
                         Visi Misi
                     </button>
                     <button 
-                        class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
                     </button>
