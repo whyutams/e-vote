@@ -196,8 +196,8 @@ class UserController extends Controller
         $data = [
             'fullname' => $request->fullname ?? $user->fullname,
             'callname' => $request->callname ?? $user->callname,
-            'email' => $request->email ?? $user->email,
-            'phone' => $request->phone ?? $user->phone,
+            'email' => $request->email,
+            'phone' => $request->phone,
         ];
 
         if ($request->filled('password')) {
