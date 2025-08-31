@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Election;
 use App\Models\User;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,19 +15,17 @@ class ElectionController extends Controller
      */
     public function index()
     {
-        return "view dashboard election index";
+        $elections = Election::all();
+
+        return view('dashboard.election.index', compact('elections'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
-
-        return "view dashboard election create";
+    { 
+        return view('dashboard.election.create');
     }
 
     /**
@@ -34,25 +33,47 @@ class ElectionController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
+        DB::transaction(function () use ($request) {
 
-        $validated = $request->validate([
-            'title' => 'required|string|max:150|unique:elections,title',
-            'description' => 'nullable|string',
-            'start_date' => 'required|date',
-            'end_date' => 'required|date|after:start_date',
-            'status' => 'nullable|in:draft,active,closed',
-        ]);
+            $election = \App\Models\Election::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'start_date' => $request->start_date,
+                'end_date' => $request->end_date,
+                'added_by' => auth()->id(),
+            ]);
 
-        $validated['added_by'] = Auth::id();
+            foreach ($request->candidates as $c) {
+                $photoPath = null;
+                if (isset($c['photo'])) {
+                    $photoPath = $c['photo']->store('candidates', 'public');
+                }
 
-        Election::create($validated);
+                \App\Models\Candidate::create([
+                    'election_id' => $election->id,
+                    'name' => $c['name'],
+                    'vission' => $c['vission'],
+                    'mission' => $c['mission'],
+                    'photo' => $photoPath,
+                    'added_by' => auth()->id(),
+                ]);
+            }
 
-        return redirect()->route('dashboard.elections.index')
-            ->with('success', 'Election berhasil dibuat.');
+            foreach ($request->users as $u) {
+                \App\Models\User::create([
+                    'fullname' => $u['fullname'],
+                    'nomor_identitas' => $u['nomor_identitas'],
+                    'phone' => $u['phone'],
+                    'password' => bcrypt('default123'), // generate password
+                    'role' => User::ROLE_USER,
+                ]);
+            }
+        });
+
+        return redirect()->route('dashboard.election.index')
+            ->with('success', 'Data pemilihan berhasil ditambahkan!');
     }
+
 
     /**
      * Display the specified resource.

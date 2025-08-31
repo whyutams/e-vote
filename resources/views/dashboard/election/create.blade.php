@@ -17,7 +17,8 @@
             <div
                 class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6">
 
-                <form>
+                <form action="{{ route('dashboard.elections.create') }}" method="POST">
+                    @csrf
                     <!-- Stepper -->
                     <div data-hs-stepper="">
                         <!-- Stepper Nav -->
@@ -334,7 +335,7 @@
                                     </svg>
                                     Kembali
                                 </button>
-                                <a href="{{ route('dashboard.election.index') }}"
+                                <a href="{{ route('dashboard.elections.index') }}"
                                     class="px-5 py-2 bg-gray-600 text-white text-sm rounded-lg shadow hover:bg-gray-700 focus:ring-2 focus:ring-gray-300">
                                     Batal
                                 </a>
