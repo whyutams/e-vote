@@ -5,7 +5,7 @@
 @section('body')
 
 <div class="px-4 sm:px-6">
-    <h2 class="lg:text-3xl text-md font-bold text-gray-800 dark:text-white mb-6">Pemilihan Ketua & Wakil Ketua OSIS</h2>
+    <h2 class="lg:text-3xl text-md font-bold text-gray-800 mb-6">Pemilihan Ketua & Wakil Ketua OSIS</h2>
 
     <!-- Time Card -->
     <div class="mb-8">
@@ -38,23 +38,29 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
     <!-- Card -->
-    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden dark:bg-gray-800">
+    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
         <div class="p-6">
             <div class="flex flex-col items-center">
                 <div class="w-34 h-34 mb-4 rounded-2xl overflow-hidden border-4 border-blue-500 shadow-md">
                     <img class="w-full h-full object-cover" src="https://placehold.co/400" alt="kandidat" />
                 </div>
                 
-                <h5 class="mb-3 text-2xl font-bold text-gray-700 dark:text-white">
+                <h5 class="mb-3 text-2xl font-bold text-gray-700">
                     Dimas & Sadim
                 </h5>
                 
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
+                    @include('dashboard.election.customize.visi-misi')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        type="button">
+                        Visi Misi
+                    </button>
+                    <button  
                         class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
@@ -64,23 +70,29 @@
         </div>
     </div>
     
-    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden dark:bg-gray-800">
+    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
         <div class="p-6">
             <div class="flex flex-col items-center">
                 <div class="w-34 h-34 mb-4 rounded-2xl overflow-hidden border-4 border-blue-500 shadow-md">
                     <img class="w-full h-full object-cover" src="https://placehold.co/400" alt="kandidat" />
                 </div>
                 
-                <h5 class="mb-3 text-2xl font-bold text-gray-700 dark:text-white">
+                <h5 class="mb-3 text-2xl font-bold text-gray-700">
                     Dimas & Sadim
                 </h5>
                 
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
+                    @include('dashboard.election.customize.visi-misi')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        type="button">
+                        Visi Misi
+                    </button>
+                    <button  
                         class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
@@ -90,23 +102,29 @@
         </div>
     </div>
     
-    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden dark:bg-gray-800">
+    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
         <div class="p-6">
             <div class="flex flex-col items-center">
                 <div class="w-34 h-34 mb-4 rounded-2xl overflow-hidden border-4 border-blue-500 shadow-md">
                     <img class="w-full h-full object-cover" src="https://placehold.co/400" alt="kandidat" />
                 </div>
                 
-                <h5 class="mb-3 text-2xl font-bold text-gray-700 dark:text-white">
+                <h5 class="mb-3 text-2xl font-bold text-gray-700">
                     Dimas & Sadim
                 </h5>
                 
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
+                    @include('dashboard.election.customize.visi-misi')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        type="button">
+                        Visi Misi
+                    </button>
+                    <button  
                         class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
@@ -115,23 +133,29 @@
             </div>
         </div>
     </div>
-    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden dark:bg-gray-800">
+    <div class="bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden">
         <div class="p-6">
             <div class="flex flex-col items-center">
                 <div class="w-34 h-34 mb-4 rounded-2xl overflow-hidden border-4 border-blue-500 shadow-md">
                     <img class="w-full h-full object-cover" src="https://placehold.co/400" alt="kandidat" />
                 </div>
                 
-                <h5 class="mb-3 text-2xl font-bold text-gray-700 dark:text-white">
+                <h5 class="mb-3 text-2xl font-bold text-gray-700">
                     Dimas & Sadim
                 </h5>
                 
                 <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
                 
                 <div class="flex items-center gap-3">
+                    @include('dashboard.election.customize.visi-misi')
                     <button 
                         data-modal-target="default-modal" 
                         data-modal-toggle="default-modal" 
+                        class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
+                        type="button">
+                        Visi Misi
+                    </button>
+                    <button 
                         class="px-20 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                         type="button">
                         Pilih
