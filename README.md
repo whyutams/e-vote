@@ -17,18 +17,16 @@ Vitely adalah aplikasi pemungutan suara elektronik yang aman, dibangun dengan La
 
 - 🗳️ Manajemen pemilihan (elections) yang fleksibel dan terstruktur
 - 👥 Sistem manajemen admin/operator dengan tingkat akses berbeda
-- 📊 Dashboard real-time untuk pemantauan hasil suara
 - 🔐 Autentikasi dan otorisasi pengguna yang aman
 - 📱 Antarmuka responsif untuk mobile
 - ✅ Sistem verifikasi suara
-- 📈 Pelaporan dan analitik detail
 
 
 ## 💻 Persyaratan Sistem
 
 - PHP >= 8.1
 - Composer
-- MySQL/PostgreSQL
+- MySQL/MariaDB
 - Node.js & NPM
 
 ## 🛠️ Instalasi
@@ -84,7 +82,6 @@ php artisan migrate
 
 Aplikasi ini menerapkan berbagai langkah keamanan termasuk:
 - Tidak ada fitur pendaftaran publik untuk mencegah manipulasi data
-- Penambahan pemilih dilakukan manual oleh admin/operator atau melalui import Excel
 - user Hanya bisa bisa memilih 1 kali dalam setiap elections
 
 ## 🤝 Kontribusi
