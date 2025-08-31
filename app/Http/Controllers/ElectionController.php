@@ -89,7 +89,7 @@ class ElectionController extends Controller
      */
     public function show(Election $election)
     {
-        
+
         $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
             ->where('election_id', $election->id)
             ->get();
@@ -106,9 +106,9 @@ class ElectionController extends Controller
             ->where('election_id', $election->id)
             ->get();
 
-        $users = User::where('election_id', $election->id)->get(); 
+        $users = User::where('election_id', $election->id)->get();
 
-        return view('dashboard.election.show_voter', compact('election', 'users')); 
+        return view('dashboard.election.show_voter', compact('election', 'users'));
     }
 
 
@@ -118,9 +118,6 @@ class ElectionController extends Controller
      */
     public function edit(Election $election)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         return view('dashboard.election.edit.edit_election', compact('election'));
     }
@@ -130,9 +127,6 @@ class ElectionController extends Controller
      */
     public function update(Request $request, Election $election)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         $validated = $request->validate([
             'title' => 'required|string|max:150|unique:elections,title,' . $election->id,
@@ -146,7 +140,7 @@ class ElectionController extends Controller
 
         $election->update($validated);
 
-        return redirect()->route('dashboard.elections.index', ['election'=>$election->id])
+        return redirect()->route('dashboard.elections.index', ['election' => $election->id])
             ->with('success', 'Election berhasil diperbarui.');
     }
 
@@ -155,9 +149,6 @@ class ElectionController extends Controller
      */
     public function destroy(Election $election)
     {
-        if (Auth::check() && Auth::user()->role != User::ROLE_ADMIN) {
-            return abort('404', 'NOT FOUND');
-        }
 
         $election->delete();
 
