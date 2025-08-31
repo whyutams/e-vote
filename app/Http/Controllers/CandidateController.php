@@ -23,10 +23,10 @@ class CandidateController extends Controller
      * Show the form for creating a new resource.
      */
     public function create(Election $election)
-    {
+{
+    return view('dashboard.candidates.create', compact('election'));
+}
 
-        return "view dashboard candidate create";
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -49,6 +49,10 @@ class CandidateController extends Controller
         $validated['added_by'] = Auth::id();
 
         Candidate::create($validated);
+
+        return redirect()->route('dashboard.elections.show', $election->id)
+            ->with('success', 'Kandidat berhasil diperbarui.');
+
     }
 
     /**
