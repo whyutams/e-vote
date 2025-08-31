@@ -1,0 +1,112 @@
+@extends('layouts.app')
+
+@section('title', 'Profil Saya')
+
+@section('content')
+
+    <div class="mt-3 mb-3">
+        <h2 class="text-2xl font-bold text-gray-800">Ubah Data Profil</h2>
+        <p class="text-sm text-gray-500">Form di bawah ini untuk mengubah data profil Anda.</p>
+    </div>
+
+    <div class="mt-6 ms-1 me-1 max-w-5xl mx-auto mb-5">
+        <div class="flex flex-col md:flex-row gap-6">
+
+            <!-- Kolom Form -->
+            <div class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm p-6 md:p-8">
+
+                @if ($errors->any())
+                    <div class="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg flex justify-between"
+                        id="alert-error">
+                        <ul class="list-disc list-inside">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                        <span class="my-auto">
+                            <i class="ri-close-line text-lg cursor-pointer" data-dismiss-target="#alert-error"></i>
+                        </span>
+                    </div>
+                @endif
+
+                @if(session('success'))
+                    <div class="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                        {{ session('success') }}
+                    </div>
+                @endif
+
+                <form action="{{ route('dashboard.profile.update') }}" method="POST">
+                    @csrf
+                    <div class="mb-5">
+                        <label for="fullname" class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap
+                            <span class="me-2 text-red-600">*</span></label>
+                        <input value="{{ old('fullname', $user->fullname) }}" type="text" id="fullname" name="fullname"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            required>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="callname" class="block mb-2 text-sm font-medium text-gray-900">Nama Panggilan
+                            <span class="me-2 text-red-600">*</span></label>
+                        <input value="{{ old('callname', $user->callname) }}" type="text" id="callname" name="callname"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+                            required>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Email</label>
+                        <input value="{{ old('email', $user->email) }}" type="text" id="email" name="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900">No. HP</label>
+                        <input value="{{ old('phone', $user->phone) }}" type="text" id="phone" name="phone"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="username" class="block mb-2 text-sm font-medium text-gray-900">Username</label>
+                        <input value="{{ $user->username }}" type="text" id="username" name="username"
+                            class="bg-gray-100 border border-gray-300 text-gray-500 text-sm rounded-lg
+                                   block w-full p-2.5 cursor-not-allowed"
+                            readonly disabled>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="password" class="block mb-2 text-sm font-medium text-gray-900">Password Baru</label>
+                        <input type="password" id="password" name="password"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                        <small class="text-gray-500">Kosongkan jika tidak ingin mengubah password</small>
+                    </div>
+
+                    <div class="mb-5">
+                        <label for="password_confirmation" class="block mb-2 text-sm font-medium text-gray-900">
+                            Konfirmasi Password Baru
+                        </label>
+                        <input type="password" name="password_confirmation" id="password_confirmation"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+                    </div>
+
+                    <div class="mt-6 flex justify-start flex-wrap gap-2">
+                        <button type="submit"
+                            class="me-2 px-5 py-2 bg-yellow-500 text-white text-sm rounded-lg shadow hover:bg-yellow-700 focus:ring-2 focus:ring-blue-300">
+                            Simpan Perubahan
+                        </button>
+                        <a href="{{ route('dashboard.index') }}"
+                            class="px-5 py-2 bg-gray-600 text-white text-sm rounded-lg shadow hover:bg-gray-700 focus:ring-2 focus:ring-gray-300">
+                            Batal
+                        </a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+@endsection

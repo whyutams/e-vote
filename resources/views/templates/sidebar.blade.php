@@ -29,6 +29,15 @@
                </a>
             @endif
          </li>
+         <li>
+             @if(auth()->user()->role === 'admin')
+            <a href="{{ route('dashboard.profile.index') }}" class="flex items-center p-2 rounded-lg group hover-scale
+               {{ Request::is('dashboard/profile') ? 'bg-blue-500 text-gray-100' : 'text-gray-600 hover:bg-gray-100' }}">
+               <i class="ri-user-3-line text-xl"></i>
+               <span class="ms-3">Profil</span>
+            </a>
+            @endif
+         </li>
          <hr class="h-px my-8 bg-gray-200 border-0">
          <li>
             <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Yakin ingin logout?')">

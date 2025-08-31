@@ -87,6 +87,9 @@ Route::middleware('auth')->group(function () {
 
         });
 
+        Route::get('/profile', [UserController::class, 'update_profile'])->name('dashboard.profile.index');
+        Route::post('/profile', [UserController::class, 'proses_update_profile'])->name('dashboard.profile.update');
+
         Route::prefix('admins')->middleware('role:'. User::ROLE_SUPERADMIN)->group(function () {
             Route::get('/', [UserController::class, 'd'])->name('dashboard.admins.index');
             Route::get('/create', [UserController::class, 'd_create_admin'])->name('dashboard.admins.create');
