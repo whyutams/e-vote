@@ -26,7 +26,7 @@ class UserController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended(Auth::user()->role == User::ROLE_USER ? '/' : '/dashboard')->with('success', 'Login berhasil, Selamat datang ' . Auth::user()->callname . '.');
+            return redirect()->intended('/voter')->with('success', 'Login berhasil, Selamat datang ' . Auth::user()->callname . '.');
         }
 
         return back()->withErrors([
@@ -162,7 +162,7 @@ class UserController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'username' => $request->username,
-            'password'=>$request->password,
+            'password' => Hash::make($request->password),
             'role' => User::ROLE_ADMIN,
         ]);
 
@@ -190,7 +190,7 @@ class UserController extends Controller
                 'digits_between:6,20',
                 Rule::unique('users', 'phone')->ignore($user->id),
             ],
-            'password' => 'nullable|min:6|confirmed', 
+            'password' => 'nullable|min:6|confirmed',
         ]);
 
         $data = [
