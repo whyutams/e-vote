@@ -131,14 +131,18 @@
                         Visi Misi
                     </button> 
 
-                    <form action="{{ route('voter.vote.store', ['election'=>$election->id, 'candidate'=>$candidate->id]) }}" method="POST" class="" onsubmit="return confirm('Apakah anda yakin ingin memilih {{$candidate->name}}?')">
+                    @if(!$hasVoted)
+                        <form action="{{ route('voter.vote.store', ['election'=>$election->id, 'candidate'=>$candidate->id]) }}" method="POST" class="" onsubmit="return confirm('Apakah anda yakin ingin memilih {{$candidate->name}}?')">
+                    @endif
                         @csrf
                         <button type="submit" 
                             class="pick-btn px-10 py-2 text-sm font-semibold text-white rounded-full {{ $hasVoted ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700' }}"
                             >
                             Pilih
                         </button> 
-                    </form>
+                    @if(!$hasVoted)
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>
