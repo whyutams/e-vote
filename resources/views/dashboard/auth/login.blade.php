@@ -39,10 +39,10 @@
             {{-- Heading --}}
             <div class="mb-6">
               <h1 class="text-gray-900 text-center font-manrope text-3xl font-bold leading-10 mb-2">
-                Welcome Back
+                Login Admin
               </h1>
               <p class="text-gray-500 text-center text-base font-medium leading-6">
-                Silakan login sebagai admin
+                Silakan login sebagai admin/superadmin
               </p>
             </div>
 
