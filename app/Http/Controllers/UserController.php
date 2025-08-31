@@ -32,7 +32,7 @@ class UserController extends Controller
         return back()->withErrors([
             'nomor_identitas' => 'Nomor identitas atau password salah.',
         ])->withInput();
-    } 
+    }
 
     public function dashboard_login()
     {
@@ -54,7 +54,7 @@ class UserController extends Controller
         return back()->withErrors([
             'username' => 'Username atau password salah.',
         ])->withInput();
-    } 
+    }
     public function logout(Request $request)
     {
         Auth::logout();
@@ -130,23 +130,91 @@ class UserController extends Controller
     /* Dashboard */
     public function d()
     {
-        return "view user";
+        $admins = User::where('role', User::ROLE_ADMIN)->get();
+
+        return view('dashboard.admins.index', compact('admins'));
     }
 
-    public function d_create()
+    public function d_create_admin()
     {
-        return "view create user";
+        return view('dashboard.admins.create');
     }
 
-    public function d_edit()
+
+    public function d_store_admin(Request $request)
     {
-        return "view edit user";
+        $credentials = $request->validate([
+            'fullname' => 'required|string|max:100',
+            'callname' => 'required|string|max:10',
+            'email' => 'nullable|email|unique:users,email',
+            'phone' => 'nullable|numeric|digits_between:6,20|unique:users,phone',
+            'username' => 'required|string|min:6|max:50|unique:users',
+            'password' => 'required|min:6|confirmed',
+            'role' => [
+                'nullable',
+                Rule::in([User::ROLE_ADMIN]),
+            ],
+        ]);
+
+        User::create([
+            'fullname' => $request->fullname,
+            'callname' => $request->callname,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'username' => $request->username,
+            'role' => User::ROLE_ADMIN,
+        ]);
+
+        return redirect()->route('dashboard.admins.index')->with('success', 'Admin berhasil ditambahkan.');
+    }
+
+    public function d_edit_admin(User $user)
+    {
+        return view('dashboard.admins.edit', compact('user'));
+    }
+
+    public function d_update_admin(Request $request, User $user)
+    {
+        $credentials = $request->validate([
+            'fullname' => 'required|string|max:100',
+            'callname' => 'required|string|max:10',
+            'email' => [
+                'nullable',
+                'email',
+                Rule::unique('users', 'email')->ignore($user->id),
+            ],
+            'phone' => [
+                'nullable',
+                'numeric',
+                'digits_between:6,20',
+                Rule::unique('users', 'phone')->ignore($user->id),
+            ],
+            'password' => 'nullable|min:6|confirmed', 
+        ]);
+
+        $data = [
+            'fullname' => $request->fullname ?? $user->fullname,
+            'callname' => $request->callname ?? $user->callname,
+            'email' => $request->email ?? $user->email,
+            'phone' => $request->phone ?? $user->phone,
+        ];
+
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $user->update($data);
+
+        return redirect()->route('dashboard.admins.index')->with('success', 'Admin berhasil diperbarui.');
     }
 
     public function d_destroy(User $user)
-    { 
+    {
+        if ($user->role == Auth::user()->role || $user->role == User::ROLE_SUPERADMIN)
+            return abort('404', 'NOT FOUND');
+
         $user->delete();
-        return redirect()->route('dashboard.users.index')->with('success', 'User berhasil dihapus.');
+        return redirect()->route('dashboard.admins.index')->with('success', 'User berhasil dihapus.');
     }
     /* Dashboard END */
 }

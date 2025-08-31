@@ -27,6 +27,7 @@ class User extends Authenticatable
         'election_id',
         'username',
         'password',
+        'role'
     ];
 
     /**

@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->string('callname', 10)->nullable();
             $table->string('email', 100)->unique()->nullable();
             $table->string('phone', 20)->unique()->nullable();
-            $table->foreignId('election_id')->nullable();
+            $table->string('election_id')->nullable();
             $table->string('username', 50)->unique()->nullable();
             $table->string('password');
             $table->enum('role', [User::ROLE_USER, User::ROLE_ADMIN, User::ROLE_SUPERADMIN])->default(User::ROLE_USER);

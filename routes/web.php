@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,85 +26,78 @@ Route::middleware('guest')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-});
 
+    Route::prefix('dashboard')->middleware('role:' . User::ROLE_SUPERADMIN . "," . User::ROLE_ADMIN)->group(function () {
 
-Route::prefix('dashboard')->group(function () {
-
-    Route::get('/', function () {
-        return view('dashboard.dashboard');
-    })->name('dashboard.index');
-
-    Route::prefix('election')->group(function () {
         Route::get('/', function () {
-            return view('dashboard.election.index');
-        })->name('dashboard.election.index');
+            return view('dashboard.dashboard');
+        })->name('dashboard.index');
 
-        Route::get('/create', function () {
-            return view('dashboard.election.create');
-        })->name('dashboard.election.create');
+        Route::prefix('election')->group(function () {
+            Route::get('/', function () {
+                return view('dashboard.election.index');
+            })->name('dashboard.election.index');
 
-        Route::get('/edit', function () {
-            return view('dashboard.election.edit');
-        })->name('dashboard.election.edit');
+            Route::get('/create', function () {
+                return view('dashboard.election.create');
+            })->name('dashboard.election.create');
 
-        Route::get('/{id}', function ($id) {
-            return view('dashboard.election.show', ['id' => $id]);
-        })->name('dashboard.election.show');
+            Route::get('/edit', function () {
+                return view('dashboard.election.edit');
+            })->name('dashboard.election.edit');
 
-        Route::get('/{id}/voter', function ($id) {
-            return view('dashboard.election.show_voter', ['id' => $id]);
-        })->name('dashboard.election.show_voter');
+            Route::get('/{id}', function ($id) {
+                return view('dashboard.election.show', ['id' => $id]);
+            })->name('dashboard.election.show');
 
-        // CREATE (di dalam show)
-        Route::prefix('{id}/create')->group(function () {
-            Route::get('/candidate', function ($id) {
-                return view('dashboard.election.create.create_candidate', ['id' => $id]);
-            })->name('dashboard.election.create_candidate');
+            Route::get('/{id}/voter', function ($id) {
+                return view('dashboard.election.show_voter', ['id' => $id]);
+            })->name('dashboard.election.show_voter');
 
-            Route::get('/voter', function ($id) {
-                return view('dashboard.election.create.create_voter', ['id' => $id]);
-            })->name('dashboard.election.create_voter');
+            // CREATE (di dalam show)
+            Route::prefix('{id}/create')->group(function () {
+                Route::get('/candidate', function ($id) {
+                    return view('dashboard.election.create.create_candidate', ['id' => $id]);
+                })->name('dashboard.election.create_candidate');
+
+                Route::get('/voter', function ($id) {
+                    return view('dashboard.election.create.create_voter', ['id' => $id]);
+                })->name('dashboard.election.create_voter');
+            });
+
+            // EDIT (di dalam show)
+            Route::prefix('{id}/edit')->group(function () {
+                Route::get('/election', function ($id) {
+                    return view('dashboard.election.edit.edit_election', ['id' => $id]);
+                })->name('dashboard.election.edit_election');
+
+                Route::get('/candidate', function ($id) {
+                    return view('dashboard.election.edit.edit_candidate', ['id' => $id]);
+                })->name('dashboard.election.edit_candidate');
+
+                Route::get('/voter', function ($id) {
+                    return view('dashboard.election.edit.edit_voter', ['id' => $id]);
+                })->name('dashboard.election.edit_voter');
+            });
+
         });
 
-        // EDIT (di dalam show)
-        Route::prefix('{id}/edit')->group(function () {
-            Route::get('/election', function ($id) {
-                return view('dashboard.election.edit.edit_election', ['id' => $id]);
-            })->name('dashboard.election.edit_election');
-
-            Route::get('/candidate', function ($id) {
-                return view('dashboard.election.edit.edit_candidate', ['id' => $id]);
-            })->name('dashboard.election.edit_candidate');
-
-            Route::get('/voter', function ($id) {
-                return view('dashboard.election.edit.edit_voter', ['id' => $id]);
-            })->name('dashboard.election.edit_voter');
+        Route::prefix('admins')->group(function () {
+            Route::get('/', [UserController::class, 'd'])->name('dashboard.admins.index');
+            Route::get('/create', [UserController::class, 'd_create_admin'])->name('dashboard.admins.create');
+            Route::post('/create', [UserController::class, 'd_store_admin'])->name('dashboard.admins.store');
+            Route::get('/{user}/edit', [UserController::class, 'd_edit_admin'])->name('dashboard.admins.edit');
+            Route::post('/{user}/edit', [UserController::class, 'd_update_admin'])->name('dashboard.admins.update');
+            Route::delete('/{user}', [UserController::class, 'd_destroy'])->name('dashboard.admins.delete');
         });
-
     });
 
-    Route::prefix('users')->group(function () {
+    Route::prefix('voter')->middleware('role:' . User::ROLE_USER)->group(function () {
         Route::get('/', function () {
-            return view('dashboard.users.index');
-        })->name('dashboard.users.index');
-
-        Route::get('/create', function () {
-            return view('dashboard.users.create');
-        })->name('dashboard.users.create');
-
-        Route::get('/edit', function () {
-            return view('dashboard.users.edit');
-        })->name('dashboard.users.edit');
+            return view('voter.index');
+        })->name('voter.index');
+        Route::get('/vote_candidate', function () {
+            return view('voter.voter');
+        })->name('voter.voter');
     });
 });
-
-Route::prefix('voter')->group(function () {
-    Route::get('/', function () {
-        return view('voter.index');
-    })->name('voter.index');
-    Route::get('/vote_candidate', function () {
-        return view('voter.voter');
-    })->name('voter.voter');
-});
-
