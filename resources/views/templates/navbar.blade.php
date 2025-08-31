@@ -20,13 +20,31 @@
           <span class="text-center text-xl sm:text-2xl font-extrabold drop-shadow-lg">Vitely</span>
         </a>
       </div>
+
       @auth
         @if (Auth::user()->role == \App\models\User::ROLE_USER)
-          <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Yakin ingin logout?')">
-            @csrf
-            <button type="submit"
-              class="text-white bg-red-500 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center">Logout</button>
-          </form>
+          <div id="navbar-dropdown">
+            <button 
+                id="dropdownNavbarLink" 
+                data-dropdown-toggle="dropdownNavbar" 
+                class="flex items-center justify-between font-medium w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 hover:bg-transparent text-lg border-0 hover:text-blue-700 p-0">
+                {{ Auth::user()->username }}
+                <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                </svg>
+            </button>
+            <!-- Dropdown menu -->
+            
+            <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44">
+              
+                <form action="{{ route('logout') }}" method="POST" onsubmit="return confirm('Yakin ingin logout?')">
+                  @csrf
+                  
+                <div class="py-1">
+                  <button type="submit" class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-100">Logout</button>
+                </div>
+            </div>
+          </div>
         @endif
       @endauth
     </div>
