@@ -87,7 +87,7 @@
 
                     <div class="mt-6 flex justify-start flex-wrap gap-2">
                         <button type="submit"
-                            class="me-2 px-5 py-2 bg-blue-600 text-white text-sm rounded-lg shadow hover:bg-blue-700 focus:ring-2 focus:ring-blue-300">
+                            class="me-2 px-5 py-2 bg-yellow-500 text-white text-sm rounded-lg shadow hover:bg-yellow-700 focus:ring-2 focus:ring-blue-300">
                             Ubah
                         </button>
                         <a href="{{ route('dashboard.admins.index') }}"
