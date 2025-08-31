@@ -24,7 +24,7 @@
                 </a>
             </li>
         </ul>
-    </div> 
+    </div>
 
     <div class="mb-3 me-2">
         <a href="/#"
@@ -52,18 +52,22 @@
 
                         <div class="w-16 h-1 bg-blue-500 rounded-full mb-4"></div>
 
-                        <div class="flex items-center gap-3">
+                        <div class="flex flex-col items-center gap-3">
                             @include('dashboard.election.customize.visi-misi')
-                            <button data-modal-target="default-modal{{ $candidate->id }}" data-modal-toggle="default-modal{{ $candidate->id }}"
+                            <button data-modal-target="default-modal{{ $candidate->id }}"
+                                data-modal-toggle="default-modal{{ $candidate->id }}"
                                 class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
                                 type="button">
                                 Visi Misi
                             </button>
-                            <button
-                                class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none"
-                                type="button">
-                                Pilih
-                            </button>
+                            <form action="{{ route('dashboard.candidates.delete', $candidate->id) }}" method="post" onsubmit="return confirm('Yakin ingin menghapus?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"
+                                    class="px-10 py-2 text-sm font-semibold text-white bg-blue-600 rounded-full hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 focus:ring-4 focus:ring-blue-300 focus:outline-none">
+                                    Delete
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

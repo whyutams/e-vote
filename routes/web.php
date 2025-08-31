@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\ElectionController;
 use App\Http\Controllers\LandingController;
 use App\Http\Controllers\UserController;
@@ -58,8 +59,11 @@ Route::middleware('auth')->group(function () {
             Route::post('/{election}/edit', [ElectionController::class, 'update'])->name('dashboard.elections.update');
 
             Route::get('/{election}/show', [ElectionController::class, 'show'])->name('dashboard.elections.show');
-
             Route::get('/{election}/voter', [ElectionController::class, 'show_pemilih'])->name('dashboard.election.show_voter');
+            
+            Route::get('/{candidate}/create', [CandidateController::class, 'create'])->name('dashboard.candidates.create');
+            Route::post('/{candidate}/create', [CandidateController::class, 'store'])->name('dashboard.candidates.store');
+            Route::delete('/{candidate}/delete', [CandidateController::class, 'destroy'])->name('dashboard.candidates.delete');
 
             // CREATE (di dalam show)
             Route::prefix('{id}/create')->group(function () {
