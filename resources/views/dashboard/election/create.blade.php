@@ -186,7 +186,7 @@
                                                     class="w-full self-start bg-white border border-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center justify-center">
                                                     <!-- Preview -->
                                                     <div
-                                                        class=" xflex items-center justify-center bg-gray-100 rounded-lg mb-4">
+                                                        class="w-44 h-44 flex items-center justify-center bg-gray-100 rounded-lg mb-4">
                                                         <img id="preview-0" src="https://placehold.co/200"
                                                             class="rounded-lg object-cover w-full h-full preview">
                                                     </div>
