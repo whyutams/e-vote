@@ -15,7 +15,7 @@
 
             <!-- Kolom Form -->
             <div
-                class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6">
+                class="flex-1 bg-white border border-gray-200 rounded-lg shadow-sm p-6">
 
                 <form action="{{ route('dashboard.elections.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -28,7 +28,7 @@
                                                         }'>
                                 <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                                     <span
-                                        class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                                        class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
                                         <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">1</span>
                                         <svg class="hidden shrink-0 size-3 hs-stepper-success:block"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -37,12 +37,12 @@
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
                                     </span>
-                                    <span class="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                    <span class="ms-2 text-sm font-medium text-gray-800">
                                         Pemilihan
                                     </span>
                                 </span>
                                 <div
-                                    class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600">
+                                    class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600">
                                 </div>
                             </li>
 
@@ -51,7 +51,7 @@
                                                         }'>
                                 <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                                     <span
-                                        class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                                        class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
                                         <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">2</span>
                                         <svg class="hidden shrink-0 size-3 hs-stepper-success:block"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -60,12 +60,12 @@
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
                                     </span>
-                                    <span class="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                    <span class="ms-2 text-sm font-medium text-gray-800">
                                         Kandidat
                                     </span>
                                 </span>
                                 <div
-                                    class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600">
+                                    class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600">
                                 </div>
                             </li>
 
@@ -74,7 +74,7 @@
                                                         }'>
                                 <span class="min-w-7 min-h-7 group inline-flex items-center text-xs align-middle">
                                     <span
-                                        class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600 dark:bg-neutral-700 dark:text-white dark:group-focus:bg-gray-600 dark:hs-stepper-active:bg-blue-500 dark:hs-stepper-success:bg-blue-500 dark:hs-stepper-completed:bg-teal-500 dark:hs-stepper-completed:group-focus:bg-teal-600">
+                                        class="size-7 flex justify-center items-center shrink-0 bg-gray-100 font-medium text-gray-800 rounded-full group-focus:bg-gray-200 hs-stepper-active:bg-blue-600 hs-stepper-active:text-white hs-stepper-success:bg-blue-600 hs-stepper-success:text-white hs-stepper-completed:bg-teal-500 hs-stepper-completed:group-focus:bg-teal-600">
                                         <span class="hs-stepper-success:hidden hs-stepper-completed:hidden">3</span>
                                         <svg class="hidden shrink-0 size-3 hs-stepper-success:block"
                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -83,12 +83,12 @@
                                             <polyline points="20 6 9 17 4 12"></polyline>
                                         </svg>
                                     </span>
-                                    <span class="ms-2 text-sm font-medium text-gray-800 dark:text-neutral-200">
+                                    <span class="ms-2 text-sm font-medium text-gray-800">
                                         Pemilih
                                     </span>
                                 </span>
                                 <div
-                                    class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600 dark:bg-neutral-700 dark:hs-stepper-success:bg-blue-600 dark:hs-stepper-completed:bg-teal-600">
+                                    class="w-full h-px flex-1 bg-gray-200 group-last:hidden hs-stepper-success:bg-blue-600 hs-stepper-completed:bg-teal-600">
                                 </div>
                             </li>
                             <!-- End Item -->
@@ -102,26 +102,26 @@
                                                         "index": 1
                                                         }'>
                                 <div
-                                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6">
-                                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Data Pemilihan
+                                    class="bg-gray-50  border border-gray-200 rounded-lg p-6">
+                                    <h3 class="text-lg font-semibold text-gray-800 mb-4">Data Pemilihan
                                     </h3>
                                     <div class="mb-5">
                                         <label for="title"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Judul
+                                            class="block mb-2 text-sm font-medium text-gray-900">Judul
                                             Pemilihan</label>
                                         <input type="text" id="title" name="title" value="{{ old('title') }}"
                                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
                                                                             focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                                                                            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" required>
+                                                                            " required>
                                     </div>
 
                                     <div class="mb-5">
                                         <label for="description"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
+                                            class="block mb-2 text-sm font-medium text-gray-900">Deskripsi</label>
                                         <textarea id="description" rows="4"
                                             class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg 
                                                                             border border-gray-300 focus:ring-blue-500 focus:border-blue-500 
-                                                                            dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+                                                                            "
                                             name="description">{{ old('description') }}</textarea>
                                     </div>
 
@@ -153,47 +153,47 @@
                                 <div id="kandidat-container" class="space-y-6">
                                     <!-- Kandidat Template -->
                                     <div
-                                        class="kandidat-item bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6">
-                                        <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Data
+                                        class="kandidat-item bg-gray-50  border border-gray-200 rounded-lg p-6">
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Data
                                             Kandidat</h3>
                                         <div class="flex flex-col md:flex-row gap-6">
                                             <div class="flex-1">
                                                 <div class="mb-5">
                                                     <label
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
+                                                        class="block mb-2 text-sm font-medium text-gray-900">Nama</label>
                                                     <input type="text" name="candidates[0][name]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white">
+                  ">
                                                 </div>
 
                                                 <div class="mb-5">
                                                     <label
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visi</label>
+                                                        class="block mb-2 text-sm font-medium text-gray-900">Visi</label>
                                                     <textarea name="candidates[0][vision]"
-                                                        class="wysiwyg bg-gray-50 border w-full border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"></textarea>
+                                                        class="wysiwyg bg-gray-50 border w-full border-gray-300 rounded-lg shadow-sm"></textarea>
                                                 </div>
 
                                                 <div class="mb-5">
                                                     <label
-                                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Misi</label>
+                                                        class="block mb-2 text-sm font-medium text-gray-900">Misi</label>
                                                     <textarea name="candidates[0][mission]"
-                                                        class="wysiwyg bg-gray-50 border w-full border-gray-300 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700"></textarea>
+                                                        class="wysiwyg bg-gray-50 border w-full border-gray-300 rounded-lg shadow-sm"></textarea>
                                                 </div>
                                             </div>
 
                                             <div class="flex-1">
                                                 <div
-                                                    class="w-full self-start bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 p-6 flex flex-col items-center justify-center">
+                                                    class="w-full self-start bg-white border border-gray-200 rounded-lg shadow-sm p-6 flex flex-col items-center justify-center">
                                                     <!-- Preview -->
                                                     <div
-                                                        class="w-full h-full flex items-center justify-center bg-gray-100 rounded-lg mb-4">
+                                                        class=" xflex items-center justify-center bg-gray-100 rounded-lg mb-4">
                                                         <img id="preview-0" src="https://placehold.co/200"
                                                             class="rounded-lg object-cover w-full h-full preview">
                                                     </div>
-                                                    <h3 class="text-md font-semibold mb-4 text-gray-700 dark:text-gray-200">
+                                                    <h3 class="text-md font-semibold mb-4 text-gray-700">
                                                         Upload Gambar</h3>
                                                     <input type="file" name="candidates[0][photo]" id="upload-0"
-                                                        class="file-input block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600">
+                                                        class="file-input block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none ">
                                                 </div>
                                             </div>
                                         </div>
@@ -276,51 +276,96 @@
                             <div data-hs-stepper-content-item='{
                                                         "index": 3
                                                         }' style="display: none;">
-                                <div
-                                    class="bg-gray-50 dark:bg-neutral-800 border border-gray-200 dark:border-neutral-700 rounded-lg p-6">
-                                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Data Pemilih
-                                    </h3>
+                                <div data-hs-stepper-content-item='{"index": 3}' style="display: none;">
+                                    <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
+                                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Data Pemilih</h3>
 
-                                    <!-- Nama -->
-                                    <div class="mb-4">
-                                        <label for="nama_pemilih"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
-                                            Lengkap</label>
-                                        <input type="text" id="nama_pemilih" name="nama_pemilih" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                                                                            dark:placeholder-gray-400 dark:text-white"
-                                            required>
-                                    </div>
+                                        <div id="pemilih-container" class="space-y-6">
+                                            <!-- Template Pemilih -->
+                                            <div class="pemilih-item bg-white border border-gray-200 rounded-lg p-4">
+                                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                    <!-- Nama -->
+                                                    <div>
+                                                        <label class="block mb-2 text-sm font-medium text-gray-900">Nama Lengkap</label>
+                                                        <input type="text" name="voters[0][name]" 
+                                                            class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                            focus:ring-blue-500 focus:border-blue-500" required>
+                                                    </div>
 
-                                    <!-- Nomor HP -->
-                                    <div class="mb-4">
-                                        <label for="nomor_hp"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor
-                                            HP</label>
-                                        <input type="number" id="nomor_hp" name="nomor_hp" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                                                                            dark:placeholder-gray-400 dark:text-white"
-                                            pattern="[0-9]{10,13}" required>
-                                    </div>
+                                                    <!-- Nomor HP -->
+                                                    <div>
+                                                        <label class="block mb-2 text-sm font-medium text-gray-900">Nomor HP</label>
+                                                        <input type="number" name="voters[0][phone]" 
+                                                            class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                            focus:ring-blue-500 focus:border-blue-500" 
+                                                            pattern="[0-9]{10,13}" required>
+                                                    </div>
 
-                                    <!-- Nomor Induk -->
-                                    <div class="mb-4">
-                                        <label for="nomor_induk"
-                                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nomor
-                                            Induk</label>
-                                        <input type="number" id="nomor_induk" name="nomor_induk" class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
-                                                                            focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                                                                            dark:placeholder-gray-400 dark:text-white"
-                                            required>
+                                                    <!-- Nomor Induk -->
+                                                    <div>
+                                                        <label class="block mb-2 text-sm font-medium text-gray-900">Nomor Induk</label>
+                                                        <input type="number" name="voters[0][id_number]" 
+                                                            class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
+                                                            focus:ring-blue-500 focus:border-blue-500" required>
+                                                    </div>
+                                                </div>
+
+                                                <button type="button" 
+                                                    class="hapus-pemilih mt-3 text-red-600 hover:text-red-800 text-sm">
+                                                    Hapus Pemilih
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <!-- Tombol Tambah Pemilih -->
+                                        <div class="mt-4">
+                                            <button type="button" id="tambah-pemilih" 
+                                                class="py-2 px-3 rounded-lg bg-green-600 text-white hover:bg-green-700">
+                                                + Tambah Pemilih
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <script>
+                                document.addEventListener("DOMContentLoaded", function () {
+                                    let voterIndex = 1;
+                                    const voterContainer = document.getElementById("pemilih-container");
+                                    const btnTambahPemilih = document.getElementById("tambah-pemilih");
+
+                                    btnTambahPemilih.addEventListener("click", function () {
+                                        let pemilihBaru = voterContainer.firstElementChild.cloneNode(true);
+
+                                        pemilihBaru.querySelectorAll("input").forEach(el => {
+                                            el.value = "";
+                                            if (el.name.includes("voters")) {
+                                                el.name = el.name.replace(/\[\d+\]/, `[${voterIndex}]`);
+                                            }
+                                        });
+
+                                        voterContainer.appendChild(pemilihBaru);
+                                        voterIndex++;
+                                    });
+
+                                    voterContainer.addEventListener("click", function (e) {
+                                        if (e.target.classList.contains("hapus-pemilih")) {
+                                            if (voterContainer.children.length > 1) {
+                                                e.target.closest(".pemilih-item").remove();
+                                            } else {
+                                                alert("Minimal 1 pemilih harus ada!");
+                                            }
+                                        }
+                                    });
+                                });
+                                </script>
+
                             </div>
                             <!-- End Step 3 Content -->
 
                             <!-- Button Group -->
                             <div class="mt-5 flex justify-between items-center gap-x-2">
                                 <button type="button"
-                                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+                                    class="py-2 px-3 inline-flex items-center gap-x-1 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                                     data-hs-stepper-back-btn="">
                                     <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
