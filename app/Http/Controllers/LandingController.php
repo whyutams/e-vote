@@ -10,9 +10,13 @@ class LandingController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
+
         $candidates = Candidate::with(['election', 'creator', 'updater', 'votes'])
-            ->oldest()->get()
-            ->groupBy('election_id');
+            ->where('election_id', $user->election_id)  
+            ->oldest()
+            ->get()
+            ->groupBy('election_id'); 
 
         return view('voter.index', compact('candidates'));
     }
@@ -35,7 +39,11 @@ class LandingController extends Controller
         $isVotingOpen = now()->between($election->start_date, $election->end_date);
 
         return view('voter.voter', compact(
-            'election', 'candidates', 'hasVoted', 'myCandidateId', 'isVotingOpen'
+            'election',
+            'candidates',
+            'hasVoted',
+            'myCandidateId',
+            'isVotingOpen'
         ));
     }
 }

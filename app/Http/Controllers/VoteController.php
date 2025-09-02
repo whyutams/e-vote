@@ -14,17 +14,14 @@ class VoteController extends Controller
     {
         $userId = $request->user()->id;
 
-        // Pastikan kandidat memang milik election ini
         if ($candidate->election_id !== $election->id) {
             return back()->with('error', 'Kandidat tidak valid untuk pemilihan ini.');
         }
 
-        // Pastikan waktu voting masih dibuka
-        if (! now()->between($election->start_date, $election->end_date)) {
+        if (!now()->between($election->start_date, $election->end_date)) {
             return back()->with('error', 'Waktu pemilihan belum mulai atau sudah berakhir.');
         }
 
-        // Cegah double vote (juga diamankan oleh unique index)
         $already = Vote::where('election_id', $election->id)
             ->where('user_id', $userId)
             ->exists();
@@ -36,17 +33,15 @@ class VoteController extends Controller
         try {
             DB::transaction(function () use ($election, $candidate, $userId) {
                 Vote::create([
-                    'election_id'  => $election->id,
+                    'election_id' => $election->id,
                     'candidate_id' => $candidate->id,
-                    'user_id'      => $userId,
+                    'user_id' => $userId,
                 ]);
             });
         } catch (\Throwable $e) {
-            // Jika ada race condition, unique constraint akan menolak
             return back()->with('error', 'Gagal menyimpan suara. Silakan coba lagi.');
         }
 
         return back()->with('success', 'Suara Anda berhasil disimpan!');
     }
 }
-    

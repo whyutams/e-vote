@@ -111,7 +111,7 @@ class ElectionController extends Controller
             ->where('election_id', $election->id)
             ->get(); 
         $users = User::where('role', User::ROLE_USER)->where('election_id', $election->id)->get();
-        $voted = Vote::with('user')->get();
+        $voted = Vote::with('user')->where('election_id', $election->id)->get();
 
         return view('dashboard.election.show', compact('election', 'candidates', 'users', 'voted'));
     }
@@ -125,7 +125,7 @@ class ElectionController extends Controller
             ->where('election_id', $election->id)
             ->get(); 
         $users2 = User::where('role', User::ROLE_USER)->where('election_id', $election->id)->get();
-        $voted = Vote::get();
+        $voted = Vote::with('user')->where('election_id', $election->id)->get();
 
         $users = User::where('election_id', $election->id)->get();
 

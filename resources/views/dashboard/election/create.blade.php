@@ -303,7 +303,7 @@
 
                                                     <!-- Password -->
                                                     <div>
-                                                        <label class="block mb-2 text-sm font-medium text-gray-900">password</label>
+                                                        <label class="block mb-2 text-sm font-medium text-gray-900">Password</label>
                                                         <input type="password" name="voters[0][password]" 
                                                             class="block w-full p-2.5 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 
                                                             focus:ring-blue-500 focus:border-blue-500"  required>
