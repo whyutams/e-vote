@@ -18,9 +18,16 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'nomor_identitas',
+        'fullname',
+        'callname',
         'email',
+        'phone',
+        'photo_profile',
+        'election_id',
+        'username',
         'password',
+        'role'
     ];
 
     /**
@@ -43,6 +50,6 @@ class User extends Authenticatable
     ];
 
     public const ROLE_USER = 'user';
-    public const ROLE_ADMIN = 'admin'; 
-    public const ROLE_SUPERADMIN = 'superadmin'; 
+    public const ROLE_ADMIN = 'admin';
+    public const ROLE_SUPERADMIN = 'superadmin';
 }

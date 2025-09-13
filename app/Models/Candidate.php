@@ -14,6 +14,8 @@ class Candidate extends Model
         'vision',
         'mission',
         'photo',
+        'added_by',
+        'updated_by',
     ];
 
     public function election()
@@ -21,9 +23,14 @@ class Candidate extends Model
         return $this->belongsTo(Election::class);
     }
 
-    public function user()
+    public function creator()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'added_by');
+    }
+
+    public function updater()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     }
 
     public function votes()

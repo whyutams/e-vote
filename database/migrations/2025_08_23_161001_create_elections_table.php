@@ -17,7 +17,6 @@ return new class extends Migration {
             $table->dateTime('start_date');
             $table->dateTime('end_date');
             $table->enum('status', ['draft', 'active', 'closed'])->default('draft');
-            $table->string('code', 20)->unique();
             $table->foreignId('added_by')->nullable()->constrained('users')->onDelete('set null');
             $table->foreignId('updated_by')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();

@@ -1,66 +1,94 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="public/favicon.ico" width="400" alt="Vitely Logo">
 </p>
 
-## About Laravel
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<p align="center"><h1>Vitely - Aplikasi E-Voting</h1></p>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+<p align="center">
+<img src="https://img.shields.io/badge/status-development-yellow" alt="Status">
+<img src="https://img.shields.io/badge/version-1.0-blue" alt="Versi">
+<img src="https://img.shields.io/badge/license-MIT-green" alt="Lisensi">
+</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Tentang Vitely
 
-## Learning Laravel
+Vitely adalah aplikasi pemungutan suara elektronik yang aman, dibangun dengan Laravel sebagai bagian dari kompetisi web development Fakultas Teknik Universitas Negeri Gorontalo dalam rangka Dies Natalis fakultas. Aplikasi ini menyediakan platform yang handal dengan fitur-fitur utama:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- 🗳️ Manajemen pemilihan (elections) yang fleksibel dan terstruktur
+- 👥 Sistem manajemen admin/operator dengan tingkat akses berbeda
+- 🔐 Autentikasi dan otorisasi pengguna yang aman
+- 📱 Antarmuka responsif untuk mobile
+- ✅ Sistem verifikasi suara
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 💻 Persyaratan Sistem
 
-## Laravel Sponsors
+- PHP >= 8.1
+- Composer
+- MySQL/MariaDB
+- Node.js & NPM
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## 🛠️ Instalasi
 
-### Premium Partners
+1. Clone repositori
+```bash
+git clone https://github.com/whyutams/e-vote.git
+cd e-vote
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+2. Install dependensi
+```bash
+composer install
+npm install && npm run dev
+```
 
-## Contributing
+3. Konfigurasi environment
+```bash
+cp .env.example .env
+php artisan key:generate
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Jalankan migrasi
+```bash
+php artisan migrate
+```
 
-## Code of Conduct
+## 📖 Cara Penggunaan
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### Super Admin
+1. Login sebagai Super Admin
+2. Kelola Admin/Operator
+    - Tambah admin/operator baru
+    - Atur hak akses
+    - Monitor aktivitas admin
+3. Kelola Pemilihan
+    - Buat pemilihan baru
+    - Atur parameter dan jadwal
+    - Validasi data pemilihan
+4. User
+    - Login menggunakan kode dan password yang di kirimkan melalui whatsapp
+    - Pilih elections terlebih dahulu
+    - Voting suara untuk kandidat dalam elections
 
-## Security Vulnerabilities
+### Admin/Operator
+1. Login ke dashboard
+2. Atur parameter pemilihan
+3. Tambahkan data pemilih
+4. Mulai sesi pemilihan
+5. Pantau hasil pemungutan suara
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## 🔒 Keamanan
 
-## License
+Aplikasi ini menerapkan berbagai langkah keamanan termasuk:
+- Tidak ada fitur pendaftaran publik untuk mencegah manipulasi data
+- user Hanya bisa bisa memilih 1 kali dalam setiap elections
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## 🤝 Kontribusi
+
+Kontribusi sangat diterima! Silakan baca panduan kontribusi kami sebelum mengajukan pull request.
+
+## 📝 Lisensi
+
+Proyek ini dilisensikan di bawah Lisensi MIT - lihat file [LICENSE](LICENSE) untuk detail.
+
